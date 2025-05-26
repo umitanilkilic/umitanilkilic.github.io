@@ -7,17 +7,50 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>Kesirli Türevin Diferensiyel Geometrisi</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/moon.css" />
 
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <style>
+      /* Kapak sayfası için özel stiller (isteğe bağlı) */
+      .reveal .slides section.cover-slide h1 {
+        font-size: 2.5em; /* Başlık boyutu */
+        color: var(--r-heading-color); /* Tema başlık rengi */
+        margin-bottom: 0.3em;
+      }
+      .reveal .slides section.cover-slide p {
+        font-size: 1.1em; /* Metin boyutu */
+        color: var(--r-main-color); /* Tema ana metin rengi */
+        line-height: 1.4;
+      }
+      .reveal .slides section.cover-slide .author-info {
+        margin-top: 2.5em;
+        font-size: 0.95em;
+      }
+      .reveal .slides section.cover-slide .author-info p {
+        margin-bottom: 0.2em;
+        font-size: 1em;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
+
+<!-- ─────────────  SLAYT 0 — KAPAK SAYFASI  ──────────────── -->
+<section class="cover-slide" data-background-color="#333a45" style="text-align: center;">
+  <h1 style="font-size: 2.6em; margin-bottom: 0.4em; text-shadow: 2px 2px 4px #00000060;">Kesirli Türevin Diferensiyel Geometrisi</h1>
+  
+  <div class="author-info" style="margin-top: .3em; font-size: 1.1em;">
+    <p style="font-weight: bold; font-size: 1.2em;">Ümit Anıl Kılıç</p>
+    <p>Ankara Üniversitesi</p>
+    <p>28 Mayıs 2025</p>
+  </div>
+</section>
+
 <!-- ─────────────  SLAYT 1 — Kesirli Türev & Hafıza Etkisi  ──────────────── -->
 <section
           data-auto-animate
@@ -383,8 +416,8 @@
 </section>
 <style>
   .note-box{
-    background:#f7f7f7;                       /* nötr açık gri */
-    border-left:4px solid var(--r-link-color);/* tema vurgu rengi */
+    background:#f7f7f7;
+    border-left:4px solid var(--r-link-color);
     border-radius:4px;
     padding:.6em .9em;
   }
