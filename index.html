@@ -1,1 +1,1377 @@
-sunum
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/moon.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-auto-animate
+          data-background-color="#fafafa"
+          style="font-size: 0.9em"
+        >
+          <!-- Başlık animasyonu -->
+          <h2 data-id="title">
+            Kesirli Türev
+            <span style="font-weight: 300">& Hafıza Etkisi</span>
+          </h2>
+
+          <!-- Tanım -->
+          <p class="fragment fade-in-then-semi-out" data-fragment-index="0">
+            Kesirli türev, bir sistemin geçmiş durumlarını <em>unutmayıp</em> ve
+            bu geçmişi uygun bir ağırlık fonksiyonuyla hesaba katarak sistemin
+            mevcut andaki değişimini ölçen bir türev operatörüdür.
+          </p>
+
+          <p class="fragment fade-in" data-fragment-index="1">
+            <strong>Nasıl yani?</strong>
+          </p>
+
+          <!-- α açıklaması -->
+          <p class="fragment fade-in" data-fragment-index="2">
+            Türevin derecesi \(0 &lt; \alpha &lt; 1\) aralığındaysa:
+          </p>
+
+          <!-- Madde listesi -->
+          <ul>
+            <li class="fragment fade-right" data-fragment-index="3">
+              \( \alpha \to 1 \): Sistem geçmişi daha az önemser, anlık değişime
+              odaklanır
+              <span class="note">(klasik türevin sınırı)</span>.
+            </li>
+            <li class="fragment fade-right" data-fragment-index="4">
+              \( \alpha \to 0 \): Sistem geçmişi
+              <strong>daha fazla</strong> önemser, tüm geçmiş bilgileri hesaba
+              katar <span class="note">(kesirli integral davranışı)</span>.
+            </li>
+          </ul>
+        </section>
+
+        <section data-auto-animate style="padding: 0 1rem; font-size: 0.95em">
+          <h2>
+            Bir Analoji:
+            <span style="font-weight: 300">Yankı &amp; Gitar Teli</span>
+          </h2>
+
+          <p class="fragment fade-in-then-semi-out">
+            Kapalı bir odada bir gitar telinin çıkardığı sesi düşünelim. Burada
+            kesirli türevin derecesi \( \alpha \), sistemin
+            <em>hafıza gücü</em> / <em>yankı etkisi</em> gibidir:
+          </p>
+
+          <ul style="padding-left: 1.1em">
+            <li class="fragment fade-right">
+              \( \alpha \to 0 \): Odaya ait yankı süresi çok uzundur. Çıkan her
+              yeni nota, önceki notaların uzun yankılarıyla karışır; sistem
+              geçmişi kuvvetle hatırlar.
+            </li>
+
+            <li class="fragment fade-right">
+              \( \alpha \to 1 \): Yankı süresi çok kısadır (ya da yoktur). Sesi
+              neredeyse yalnızca o anki hâliyle duyarız; geçmiş notaların etkisi
+              azalır.
+            </li>
+          </ul>
+        </section>
+
+        <!-- SLAYT 1 / 2 ------------------------------------------------------------>
+        <section data-auto-animate style="font-size: 0.70em;">
+          <h2>Klasik vs Kesirli Türev</small></h2>
+          <table class="comparison" style="width: 100%; table-layout: fixed">
+            <thead>
+              <tr>
+                <th style="width: 20%">Özellik</th>
+                <th style="width: 38%">Klasik türev</th>
+                <th style="width: 42%">Kesirli türev</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Mertebe ---------------------------------------------------------->
+              <tr class="fragment fade-in">
+                <td><strong>Mertebe</strong></td>
+                <td>Tam sayı \(1,2,3,\dots\)</td>
+                <td>Reel / kompleks \( \alpha\in\mathbb{R}\cup\mathbb{C} \)</td>
+              </tr>
+              <!-- Tanım ------------------------------------------------------------>
+              <tr class="fragment fade-in">
+                <td><strong>Tanım</strong></td>
+                <td>
+                  Limit: \( \displaystyle
+                  f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h} \)
+                </td>
+                <td>
+                  Riemann–Liouville, Caputo, Grünwald–Letnikov … Tüm tanımlar,
+                  tam-sayı türevi ile kesirli integrali birleştirir.
+                </td>
+              </tr>
+              <!-- Yerel / Global --------------------------------------------------->
+              <tr class="fragment fade-in">
+                <td><strong>Yerel / Global</strong></td>
+                <td>
+                  <strong>Yerel</strong> – yalnızca \(x\) civarındaki değerler
+                  gerekir.
+                </td>
+                <td>
+                  <strong>Yarı-global</strong> – türev noktası ile
+                  <em>geçmiş</em> arasında integral içerir; sistem önceki
+                  davranışı da hesaba katar.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- SLAYT 2 / 2 ------------------------------------------------------------>
+        <section data-auto-animate style="font-size: 0.70em;">
+          <!-- style etiketini CSS'e taşıdık -->
+          <h2>Klasik vs Kesirli Türev</h2>
+          <table class="comparison" style="width: 100%; table-layout: fixed">
+            <thead>
+              <tr>
+                <th style="width: 20%">Özellik</th>
+                <th style="width: 38%">Klasik türev</th>
+                <th style="width: 42%">Kesirli türev</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Başlangıç koşulları --------------------------------------------->
+              <tr class="fragment fade-in">
+                <td><strong>Başlangıç koşulları</strong></td>
+                <td>2. mertebe ODE için \(y(0)\) ve \(y'(0)\) yeterlidir.</td>
+                <td>
+                  Caputo tanımını kullansanız bile, kesirli mertebe $\alpha$ için $\lceil\alpha\rceil$ adet klasik başlangıç koşulu gerekir; çünkü çözüm, sistemin geçmişine duyarlıdır.
+                </td>
+              </tr>
+              <!-- Fiziksel yorum --------------------------------------------------->
+              <tr class="fragment fade-in">
+                <td><strong>Fiziksel yorumu</strong></td>
+                <td>Anlık hız, ivme vb.</td>
+                <td>
+                  “Hafızalı” yayılım, anormal difüzyon, viskoelastik sürünme,
+                  fraktal uzaylar …
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em"><strong>Not:</strong> ODE = Ordinary Differential Equation (Adi Diferansiyel Denklem)</p>
+            <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em"><strong>Not:</strong> $\lceil\alpha\rceil$ = Ceiling (Tavan) Fonksiyonu</p>
+            <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em"><strong>Not:</strong> Kesirli türev, klasik türevin genellemesi değildir; farklı bir operatördür.</p>
+        </section>
+
+        <!-- tarihi ------------------------------------------------>
+        <section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
+          <h2>Kesirli Türev Nasıl Ortaya Çıktı?</h2>
+
+          <ul style="padding-left: 1.2em">
+            <li class="fragment fade-in">
+              <strong>L’Hôpital’in Leibniz’e Sorusu</strong>
+              <em>(30 Eylül 1695)</em>:<br />
+              “\( \displaystyle \tfrac{d^n y}{dx^n} \) ifadesinde
+              <strong>n = ½</strong> olursa ne olur?”
+            </li>
+
+            <li class="fragment fade-in">
+              <strong>Leibniz’in Yanıtı:</strong><br />
+              “Bu görünüşte paradoksal fikir,
+              <em>faydalı sonuçlar</em> doğurabilir; bir gün önemli uygulamaları
+              olabilir.”
+            </li>
+
+            <li class="fragment fade-in">
+              <strong>Temel Soru:</strong><br />
+              Türev/integral mertebesi yalnızca <em>tam sayı</em> mı olmalı?<br />
+              Yoksa rasyonel, irrasyonel hatta kompleks mertebelere
+              genellenebilir mi?
+            </li>
+          </ul>
+        </section>
+
+        <section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
+          <h2>Kesirli Kalkülüsün Temelleri</h2>
+
+          <ul style="padding-left: 1.2em">
+            <li class="fragment fade-in">
+              <strong>Leonhard Euler (~1730’lar):</strong>
+              Faktöriyel fonksiyonunu <em>Gamma</em> ile genelleyerek kesirli
+              mertebeleri olarak mümkün kıldı.
+            </li>
+
+            <li class="fragment fade-in">
+              <strong>Bernhard Riemann (1847):</strong>
+              Riemann–Liouville (RL) operatörünü tanımladı.
+            </li>
+
+            <li class="fragment fade-in">
+              <strong>Michele Caputo (1967):</strong>
+              Başlangıç koşullarına daha elverişli <em>Caputo</em> operatörünü
+              geliştirdi (RL tanımının modifiye hâli).
+            </li>
+          </ul>
+        </section>
+
+        <!------------------------>
+        <section data-auto-animate style="padding: 0 0.6rem">
+          <h2>Kronolojik Özet</h2>
+
+          <!-- Basit yatay zaman çizgisi -->
+          <svg width="100%" height="110" viewBox="0 0 1000 110">
+            <!-- Ana ok -->
+            <line
+              x1="40"
+              y1="60"
+              x2="960"
+              y2="60"
+              stroke="#555"
+              stroke-width="2"
+            />
+            <polygon points="960,60 945,54 945,66" fill="#555" />
+
+            <!-- İmleri tanımla: {x konumu, yıl, etiket} -->
+            <!-- Konumlar doğrusal ölçekle elde: 1695-1967 arası yaklaşık 272 yıl -->
+            <!-- Basitlik için manuel değerler verilmiştir -->
+            <g font-size="12" text-anchor="middle">
+              <g class="fragment fade-in">
+                <circle cx="90" cy="60" r="4" fill="#c0392b" />
+                <text x="90" y="48">1695</text>
+                <text x="90" y="80">L’Hôpital</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="200" cy="60" r="4" fill="#c0392b" />
+                <text x="200" y="48">1730’lar</text>
+                <text x="200" y="80">Euler</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="460" cy="60" r="4" fill="#c0392b" />
+                <text x="460" y="48">1847</text>
+                <text x="460" y="80">Riemann</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="780" cy="60" r="4" fill="#c0392b" />
+                <text x="780" y="48">1967</text>
+                <text x="780" y="80">Caputo</text>
+              </g>
+            </g>
+          </svg>
+
+          <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em">
+            (Abel, Fourier, Laplace gibi diğer kişilerde süreçte önemli
+            rol oynamıştır.)
+          </p>
+        </section>
+
+        <!--buraya örnek grafik gelecek-->
+        <section data-auto-animate style="padding:0.6rem;">
+          <h2>Kesirli Türevin Çalışması</h2>
+                      <p class="fragment fade-in-then-semi-out" style="font-size:.85em;">
+              \(f(x) = x^2\) fonksiyonu.
+            </p>
+          <img src="assets/FractionalDerivative.gif"
+              alt="Kesirli türevin işleyişini gösteren animasyon"
+              style="max-width:70%; height:auto; border-radius:8px;"
+              class="fragment fade-in" />
+
+        </section>
+
+        <!-- KÜTÜPHANE: Reveal Math eklentiniz yüklü olsun ----------------------->
+
+<!-- -------------  RL KESİRLİ İNTEGRAL • TANIM  ------------------------->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>RL Kesirli İntegral</h2>
+
+  <div class="note-box fragment fade-in">
+    <strong>Tanım (Riemann–Liouville)</strong><br>
+    \[
+      J_a^{\alpha} f(x)=
+      \frac{1}{\Gamma(\alpha)}
+      \int_a^{x} (x-t)^{\alpha-1}\,f(t)\,dt,
+      \qquad \alpha>0
+    \]
+  </div>
+
+  <p class="fragment fade-in" style="margin-top:.8em;">
+    <em>Önce formülü görelim; ayrıntılara az sonra geçeceğiz.</em>
+  </p>
+</section>
+
+        <section data-auto-animate style="padding: 0 0.6rem">
+          <h2>Kronolojik Özet</h2>
+
+          <!-- Basit yatay zaman çizgisi -->
+          <svg width="100%" height="110" viewBox="0 0 1000 110">
+            <!-- Ana ok -->
+            <line
+              x1="40"
+              y1="60"
+              x2="960"
+              y2="60"
+              stroke="#555"
+              stroke-width="2"
+            />
+            <polygon points="960,60 945,54 945,66" fill="#555" />
+
+            <!-- İmleri tanımla: {x konumu, yıl, etiket} -->
+            <!-- Konumlar doğrusal ölçekle elde: 1695-1967 arası yaklaşık 272 yıl -->
+            <!-- Basitlik için manuel değerler verilmiştir -->
+            <g font-size="12" text-anchor="middle">
+              <g class="fragment fade-in">
+                <circle cx="90" cy="60" r="4" fill="#c0392b" />
+                <text x="90" y="48">1695</text>
+                <text x="90" y="80">L’Hôpital</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="200" cy="60" r="4" fill="#c0392b" />
+                <text x="200" y="48">1730’lar</text>
+                <text x="200" y="80">Euler</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="460" cy="60" r="4" fill="#c0392b" />
+                <text x="460" y="48">1847</text>
+                <text x="460" y="80">Riemann</text>
+              </g>
+
+              <g class="fragment fade-in">
+                <circle cx="780" cy="60" r="4" fill="#c0392b" />
+                <text x="780" y="48">1967</text>
+                <text x="780" y="80">Caputo</text>
+              </g>
+            </g>
+          </svg>
+
+          <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em">
+            (Abel, Fourier, Laplace gibi diğer kişilerde süreçte önemli
+            rol oynamıştır.)
+          </p>
+        </section>
+
+        <!--buraya örnek grafik gelecek-->
+        <section data-auto-animate style="padding:0.6rem;">
+          <h2>Kesirli Türevin Çalışması</h2>
+          <img src="assets/RLiouville.gif"
+              alt="Kesirli integralini işleyişini gösteren animasyon"
+              style="max-width:70%; height:auto; border-radius:8px;"
+              class="fragment fade-in" />
+
+        </section>
+
+<!-- -------------  RL KESİRLİ İNTEGRAL • ÖZELLİKLER  -------------------->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>RL Kesirli İntegral — Özellikler</h2>
+
+  <ul style="padding-left:1em;">
+    <li class="fragment fade-in">
+      Klasik integrali geneller; <span style="white-space:nowrap;">\( \alpha \)</span> tam sayı olmak zorunda değildir.
+    </li>
+    <li class="fragment fade-in">
+      Geçmişe bağımlı (<strong>bellekli</strong>) sistemleri tanımlamak için uygundur.
+    </li>
+  </ul>
+
+  <div class="note-box fragment zoom-in" style="margin-top:.8em;">
+    <strong>Fikir:</strong>&nbsp;
+    \((n-1)! \;\longrightarrow\; \Gamma(\alpha)\)
+    ile integral mertebesi <em>sürekli</em> yapılır.
+  </div>
+</section>
+
+<!-- -------------  CAUCHY • KLASİK N‐KATLI İNTEGRAL  -------------------->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Cauchy’nin Çok Katlı İntegrali</h2>
+
+  <p class="fragment fade-in">
+    \[
+      J_a^{n}f(x)=
+      \frac{1}{(n-1)!}\!
+      \int_{a}^{x}(x-t)^{n-1}\,f(t)\,dt,
+      \qquad n\in\mathbb N
+    \]
+  </p>
+</section>
+
+<!-- ─────────────  SLAYT 1 — RL Tanımının Geçerliliği  ──────────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Varlıksal Sonuç: RL Tanımının Geçerliliği</h2>
+
+  <!-- Teorem kutusu -->
+  <div class="note-box fragment fade-in">
+    <strong>Teorem.</strong><br>
+    Eğer \(f \in L_1[a,b]\) ve \(n &gt; 0\) ise<br>
+    \(J_a^{n}f\) tanımlıdır ve&nbsp;
+    \(J_a^{n}f \in L_1[a,b]\).
+  </div>
+
+  <!-- Yorum -->
+  <ul style="padding-left:1em; margin-top:.8em;">
+    <li class="fragment fade-in">
+      RL integrali teorik olmanın ötesinde,
+      <strong>geniş bir fonksiyon sınıfı</strong> üzerinde geçerlidir.
+    </li>
+    <li class="fragment fade-in">
+      \(L_1[a,b]\) uzayındaki her fonksiyon için 
+      \(J_a^{n}f\) yine aynı uzayda kalır; işlem <em>tutarlı</em> ve <em>güvenilir</em>dir.
+    </li>
+  </ul>
+
+  <!-- Temel fikir formülü -->
+  <p class="fragment fade-in" style="margin-top:.8em;">
+    <strong>Temel Fikir:</strong><br>
+    \[
+      J_a^{n} f(x)=
+      \frac{1}{\Gamma(n)}
+      \int_a^{x} (x-t)^{\,n-1}\,f(t)\,dt
+    \]
+    Çekirdek \((x-t)^{n-1}\) integrallenebilir olduğu için
+    integral her \(f\in L_1\) için tanımlıdır.
+  </p>
+</section>
+
+
+
+<!-- -------------  CAUCHY → RL GENELLEME  ------------------------------->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Cauchy → RL Genellemesi</h2>
+
+  <ul style="padding-left:1em;">
+    <li class="fragment fade-in">
+      \((n-1)! \;\longrightarrow\; \Gamma(\alpha)\)
+    </li>
+    <li class="fragment fade-in">
+      \(n\in\mathbb N \;\longrightarrow\; \alpha\in\mathbb R^{+}\)
+    </li>
+    <li class="fragment fade-in">
+      Böylece \(J_a^{\alpha} f(x)\) formülü elde edilir.
+    </li>
+  </ul>
+
+  <div class="note-box fragment zoom-in" style="margin-top:.8em;">
+    <strong>Sonuç:</strong>&nbsp;
+    Cauchy çok katlı integrali → Riemann-Liouville kesirli integrale.
+  </div>
+</section>
+
+<!-- ------------------  KUTU STİLLERİ  ---------------------------------->
+<style>
+  .note-box{
+    background:#f7f7f7;                       /* nötr açık gri */
+    border-left:4px solid var(--r-link-color);/* tema vurgu rengi */
+    border-radius:4px;
+    padding:.6em .9em;
+  }
+</style>
+
+
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+
+  <h2>RL Kesirli Türev</h2>
+
+  <!-- Tanım kutusu – animasyon yok, her zaman opak -->
+  <div class="note-box">
+    <strong>Tanım (Riemann–Liouville)</strong><br>
+    \[
+      {}_a D_x^{\alpha} f(x)=
+      \frac{d^{m}}{dx^{m}}
+      \Bigl(J_a^{\,m-\alpha}\,f(x)\Bigr),
+      \qquad
+      \alpha>0,\; m=\lceil\alpha\rceil
+    \]
+  </div>
+
+  <ul style="margin-top:.8em;">
+    <li class="fragment fade-in">
+      İlk adım &raquo; $J_a^{\,m-\alpha} f(x)$ kesirli integralini al.
+    </li>
+    <li class="fragment fade-in">
+      Sonra $m$-inci türevi uygula $\bigl(\tfrac{d^{m}}{dx^{m}}\bigr)$.
+    </li>
+    <li class="fragment fade-in">
+      Yerel olmayan → geçmiş bilgisine bağımlıdır
+      (<em>memory effect</em>).
+    </li>
+  </ul>
+</section>
+
+
+<!-- ────────────  SLAYT 1 — Caputo Türevinin Tanımı  ──────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Caputo Türevi</h2>
+
+  <div class="note-box fragment fade-in">
+    <strong>Tanım (Caputo, 1967)</strong><br>
+    \[
+      {}_a^{\mathrm C}\!D_x^{\alpha} f(x)=
+      \frac{1}{\Gamma(1-\alpha)}
+      \int_a^{x} \frac{f'(s)}{(x-s)^{\alpha}}\,ds,
+      \qquad 0<\alpha<1
+    \]
+  </div>
+
+  <ul style="padding-left:1em; margin-top:.8em;">
+    <li class="fragment fade-in">
+      RL türevinin <em>modifiye edilmiş</em> hâlidir; 
+      çekirdekte <strong>\(f\)</strong> yerine <strong>\(f'\)</strong> bulunur.
+    </li>
+    <li class="fragment fade-in">
+      Bu sayede başlangıç koşulları, 
+      klasik ODE formundaki \(f(0),f'(0)\dots\) verileriyle rahat uyum sağlar.
+    </li>
+  </ul>
+</section>
+
+<!-- ────────────  SLAYT 2 — Sabit Fonksiyon Özelliği  ──────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Caputo vs RL — Sabit Fonksiyon</h2>
+
+  <ul style="padding-left:1em;">
+    <li class="fragment fade-in">
+      <strong>Caputo:</strong>&nbsp; 
+      Eğer \(f(x)=C\) sabitse \(\displaystyle
+      {}_a^{\mathrm C}\!D_x^{\alpha} C = 0\)
+      (çünkü \(f'(s)=0\)). 
+    </li>
+
+    <li class="fragment fade-in">
+      <strong>Riemann–Liouville:</strong>&nbsp; 
+      \(\displaystyle
+      {}_a^{\mathrm{RL}}\!D_x^{\alpha} C =
+      \frac{C}{\Gamma(1-\alpha)}(x-a)^{-\alpha}\neq0\).
+    </li>
+  </ul>
+
+  <div class="alert-box fragment zoom-in">
+    <strong>Önemli fark:</strong>&nbsp;
+    Caputo türevi sabit fonksiyonları <em>aynen sıfıra</em> indirger;
+    RL türeviyse çekirdeği nedeniyle
+    sabitte bile sıfırdan farklıdır.
+  </div>
+</section>
+
+<!-- ────────── SLAYT 1 • RL vs Caputo Karşılaştırması ────────── -->
+<section data-auto-animate style="font-size:.7em;">
+  <h2>Riemann–Liouville vs Caputo</h2>
+
+  <table class="comp-table" style="width:100%; table-layout:fixed;">
+    <thead>
+      <tr>
+        <th style="width:26%;">Özellik</th>
+        <th style="width:37%;">Riemann–Liouville (RL)</th>
+        <th style="width:37%;">Caputo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Sıra --------------------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Sıra</strong></td>
+        <td style="color:var(--r-link-color);"><em>İlk integral, sonra türev</em></td>
+        <td style="color:#d32f2f;"><em>İlk türev, sonra integral</em></td>
+      </tr>
+
+      <!-- Başlangıç koşulu -------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Başlangıç koşulu</strong></td>
+        <td>Kesirli-mertebe türevler içerir</td>
+        <td>Klasik türevler içerir, <em>Daha sezgisel</em></td>
+      </tr>
+
+      <!-- Sabit fonksiyon --------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Sabit fonksiyon \(C\)</strong></td>
+        <td>\({}_aD_x^{\alpha}C=\dfrac{C\,(x-a)^{-\alpha}}{\Gamma(1-\alpha)}\neq0\)</td>
+        <td>\({}^{\mathrm C}\!{}_aD_x^{\alpha}C=0\)</td>
+      </tr>
+
+      <!-- Kullanım ----------------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Kullanım</strong></td>
+        <td>Teorik analiz, soyut uzaylar</td>
+        <td>Mühendislik, fiziksel modellemeler</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Özet kutusu -->
+  <div class="alert-box fragment zoom-in" style="margin-top:.8em;">
+    <strong>Ne zaman hangisi?</strong>
+    <ul style="margin:.4em 0 .2em 1em; font-size:.9em;">
+      <li><strong>RL</strong> – düzgünlük, fonksiyonel analiz, soyut kuram.</li>
+      <li><strong>Caputo</strong> – fiziksel anlamlı başlangıç koşulları içeren modeller.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<!-- ────────── SLAYT 2 • Leibniz-L Türevi ──────────────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Leibniz-L Türevi</h2>
+
+  <div class="note-box fragment fade-in">
+    <strong>Temel Amaç</strong><br>
+    Kesirli diferansiyel \(d^{\alpha}f(x)\), yalnızca pozitif \(dx\) için değil,  
+    hem pozitif hem de negatif artımlar için <strong>gerçel değerli</strong>
+    ve <strong>geometrik anlamlı</strong> bir ifade olmalıdır.
+  </div>
+</section>
+
+<!-- ────────────  Leibniz-L Türevi • Özellikler ──────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.70em;">
+  <h2>Leibniz-L Türevi — Özellikler</h2>
+
+  <table class="feat-table" style="width:100%; table-layout:fixed;">
+    <thead>
+      <tr>
+        <th style="width:28%;">Özellik</th>
+        <th style="width:72%;">Açıklama</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Tanım --------------------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Tanım</strong></td>
+        <td>
+          \[
+            {}_0^{\mathrm L}\!D_x^{\alpha}f(x)=
+            \frac{{}_a^{\mathrm C}\!D_x^{\alpha}f(x)}
+                 {{ }_a^{\mathrm C}\!D_x^{\alpha}x}
+          \]
+        </td>
+      </tr>
+
+      <!-- Temeli -------------------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Temeli</strong></td>
+        <td>
+          Fonksiyonun ve değişkenin <em>Caputo</em> kesirli
+          türevlerinin oranıdır.
+        </td>
+      </tr>
+
+      <!-- Fiziksel anlamı ---------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Fiziksel anlamı</strong></td>
+        <td>
+          Sonuç gerçel değerlidir ve hem pozitif
+          hem negatif artımlar için geçerlidir.
+          Sabitler için türev <strong>sıfır</strong> olur.
+        </td>
+      </tr>
+
+      <!-- Geometrik rolü ----------------------------------------------- -->
+      <tr class="fragment fade-in">
+        <td><strong>Geometrik rolü</strong></td>
+        <td>
+          Kesirli diferansiyel uzayının ve
+          kesirli teğet kavramlarının temel bileşenidir.
+        </td>
+      </tr>
+
+      <!-- Avantajı ------------------------------------------------------ -->
+      <tr class="fragment fade-in">
+        <td><strong>Avantajı</strong></td>
+        <td>
+          Sabit fonksiyonlar için sıfır değeri alır;
+          fiziksel / geometrik uygunluğu
+          RL tanımına göre daha iyidir.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SLAYT — Leibniz-L Türevinin Tanımı --------------------------------->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Leibniz-L Türevinin Tanımı</h2>
+
+  <p class="fragment fade-in">
+    Leibniz-L türevi, <strong>Caputo türevlerinin oranı</strong> olarak tanımlanır:
+  </p>
+
+  <div class="note-box fragment fade-in" style="text-align:center;">
+    \[
+      {}_0^L D_x^\alpha f(x) =
+      \frac{{}_a^C D_x^\alpha f(x)}
+           {{ }_a^C D_x^\alpha x}
+    \]
+  </div>
+
+  <ul style="padding-left:1em; margin-top:.6em;">
+    <li class="fragment fade-in">
+      Pay: \({}_a^C D_x^\alpha f(x)\) — fonksiyonun Caputo kesirli türevi.
+    </li>
+    <li class="fragment fade-in">
+      Payda: \({}_a^C D_x^\alpha x\) — değişkenin Caputo kesirli türevi.
+    </li>
+  </ul>
+</section>
+
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Teğet Uzayı: Ne Anlama Geliyor?</h2>
+
+  <p class="fragment fade-in">
+    Normalde bir \( y = f(x) \) eğrisine bir noktada teğet çizeriz. Bu doğru, o noktadaki "eğimi", yani klasik türevi verir.
+  </p>
+
+  <p class="fragment fade-in">
+    Peki, kesirli türev (örneğin \( \alpha = 0.5 \)) kullanırsak, hâlâ eğriye "doğru gibi" bir teğet çizebilir miyiz?
+  </p>
+</section>
+
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Teğet Uzayı</h2>
+
+  <p class="fragment fade-in">
+    <em>“Eğer \( f(x) \) için \( d^\alpha f(x) \) alıyorsak, o zaman \( dx \) yerine \( d^\alpha x \) de almalıyız!”</em>
+  </p>
+
+  <ul style="padding-left: 1.2em; margin-top: .6em;">
+    <li class="fragment fade-in">Yatay eksen: \( d^\alpha x \)</li>
+    <li class="fragment fade-in">Dikey eksen: \( d^\alpha f(x) \)</li>
+  </ul>
+</section>
+
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Teğet Doğrusu Ne Anlatır?</h2>
+
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">Bir eğri \( y = f(x) \) düşünelim.</li>
+    <li class="fragment fade-in">Klasik \( dx \) yerine, \( d^\alpha x \) ile çalışalım.</li>
+    <li class="fragment fade-in">Dikey eksende \( d^\alpha f(x) \) olur.</li>
+    <li class="fragment fade-in">Bu iki eksen üzerinde çizilen doğru: <strong>kesirli teğet doğrusu</strong>.</li>
+    <li class="fragment fade-in">Yerel olarak fonksiyonun kesirli davranışını temsil eder.</li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Klasik ve Kesirli Teğet Karşılaştırması</h2>
+
+  <table class="comp-table" style="width:100%; table-layout:fixed;">
+    <thead>
+      <tr>
+        <th style="width:48%;">Klasik</th>
+        <th style="width:48%;">Kesirli</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fragment fade-in">
+        <td>\( df \approx f'(x)\,dx \)</td>
+        <td>\( d^\alpha f(x) \approx D^\alpha f(x)\,d^\alpha x \)</td>
+      </tr>
+      <tr class="fragment fade-in">
+        <td>Teğet bir <strong>doğrudur</strong></td>
+        <td>Kesirli uzayda teğet yine <strong>doğrudur</strong></td>
+      </tr>
+      <tr class="fragment fade-in">
+        <td>Eksenler: \( dx \), \( df \)</td>
+        <td>Eksenler: \( d^\alpha x \), \( d^\alpha f(x) \)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Ark Uzunluğu: Kavram ve Amaç</h2>
+
+  <p class="fragment fade-in">
+    Bu bölümde, bir eğrinin <strong>ark (yay) uzunluğu</strong>nun
+    klasik türev yerine <strong>kesirli türevler</strong> kullanılarak nasıl tanımlanabileceği incelenecektir.
+  </p>
+
+  <div class="note-box fragment fade-in" style="margin-top: 1em;">
+    <strong>Temel Amaç</strong><br>
+    Eğer bir fonksiyon \( y = f(x) \) klasik anlamda türevlenemiyorsa ancak
+    <em>kesirli mertebeden türevlenebilir</em>se, bu eğrinin uzunluğu nasıl hesaplanır?  
+    <br><br>
+  </div>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Ark Uzunluğu</h2>
+
+  <p class="fragment fade-in"><strong>Temel Mantık:</strong>  
+    Klasik türev alınamayan (örneğin fraktal) fonksiyonlarda,  
+    <em>kesirli türev</em> ile ark uzunluğu hesaplanabilir.
+  </p>
+
+  <p class="fragment fade-in" style="margin-top: 1em;"><strong>1. Kesirli Diferansiyel:</strong></p>
+
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">Klasik: \( dy = f'(x)\,dx \)</li>
+    <li class="fragment fade-in">
+      Kesirli: 
+      \[
+        d^\alpha y =
+        \frac{{}_0^L D_x^\alpha f(x)}{{}_0^L D_x^\alpha x}
+        \cdot d^\alpha x
+      \]
+    </li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Ark Uzunluğu – Tek Değişkenli</h2>
+
+  <p class="fragment fade-in"><strong>2. Tek Değişkenli Fonksiyon:</strong> \( y = f(x) \)</p>
+
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">
+      Klasik: 
+      \( s = \int \sqrt{1 + (f'(x))^2} \, dx \)
+    </li>
+
+    <li class="fragment fade-in">
+      Kesirli:
+      \[
+        s_1(x, a) = {}_0^L I_x^\alpha
+        \left[
+          \left(
+            \left( \frac{{}_0^L D_x^\alpha f(x)}{{}_0^L D_x^\alpha x} \right)^2 + 1
+          \right)^{1/2}
+        \right] d^\alpha x
+      \]
+    </li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .75em;">
+  <h2>Parametrik Eğrilerde Kesirli Ark Uzunluğu</h2>
+
+  <p class="fragment fade-in"><strong>3. Parametrik Eğriler:</strong> \( x = g(t),\ y = f(t) \)</p>
+
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">
+      \( d^\alpha x =
+        \frac{{}_0^L D_t^\alpha g(t)}{{}_0^L D_t^\alpha t}
+        \cdot d^\alpha t \)
+    </li>
+    <li class="fragment fade-in">
+      \( d^\alpha y =
+        \frac{{}_0^L D_t^\alpha f(t)}{{}_0^L D_t^\alpha t}
+        \cdot d^\alpha t \)
+    </li>
+
+    <li class="fragment fade-in" style="margin-top: .7em;">
+      Kesirli ark uzunluğu:
+      \[
+        s = {}_0^L I_t^\alpha \left[
+          \left(
+            \left(
+              \frac{{}_0^L D_t^\alpha f(t)}{{}_0^L D_t^\alpha t}
+            \right)^2 +
+            \left(
+              \frac{{}_0^L D_t^\alpha g(t)}{{}_0^L D_t^\alpha t}
+            \right)^2
+          \right)^{1/2}
+        \right] d^\alpha t
+      \]
+    </li>
+  </ul>
+
+  <div class="note-box fragment fade-in" style="margin-top: 1em;">
+    Notasyon: 
+    \({}_0^L D_x^\alpha\) = Leibniz-L kesirli türevi,<br>
+    \({}_0^L I_x^\alpha\) = kesirli integral operatörü.
+  </div>
+</section>
+
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Ark Uzunluğunun Önemi ve Uygulama Alanları</h2>
+
+  <p class="fragment fade-in"><strong>Bu kavram ne işe yarar?</strong></p>
+
+  <ul style="padding-left: 1.2em; margin-top: .4em;">
+    <li class="fragment fade-in">
+      <strong>Klasik türevi tanımlı olmayan fonksiyonlar:</strong><br>
+      Fraktal eğriler gibi düzgün olmayan geometrilerin "uzunluğunu" ölçmek için uygundur.  
+      Klasik türev tanımsız olsa bile, <em>kesirli türev</em> tanımlı olabilir.
+    </li>
+
+    <li class="fragment fade-in">
+      <strong>Mühendislik ve Fizik Uygulamaları:</strong>
+      <ul style="margin-top: .3em; padding-left: 1.2em;">
+        <li class="fragment fade-in">Viskoelastik malzemelerin deformasyon analizleri</li>
+        <li class="fragment fade-in">Anormal difüzyon süreçlerinde yörünge takibi</li>
+        <li class="fragment fade-in">Sinyal işleme: Düzgün olmayan sinyallerin karakterizasyonu</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Kesirli Teğet Yapıları</h2>
+
+  <p class="fragment fade-in"><strong>Temel Mantık:</strong>  
+    Klasik diferansiyel geometrideki <em>teğet vektör</em>,  
+    <em>teğet doğrusu</em> ve <em>normal düzlem</em> kavramları,  
+    kesirli türevlerle genelleştirilebilir.
+  </p>
+
+  <p class="fragment fade-in"><strong>1. Kesirli Teğet Vektör:</strong></p>
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">
+      Tanım:  
+      \( \mathbf{r}_1 = \dfrac{d^\alpha \mathbf{r}}{d^\alpha s}
+      = \dfrac{{}_0 D_s^\alpha \mathbf{r}}{{}_0 D_s^\alpha s}
+      = {}_0^L D_s^\alpha \mathbf{r} \)
+    </li>
+    <li class="fragment fade-in">
+      \( \mathbf{r}(s) \): kesirli yay uzunluğu ile parametrelenmiş eğri
+    </li>
+  </ul>
+
+  <p class="fragment fade-in" style="margin-top:.8em;"><strong>2. Kesirli Teğet Vektörün Uzunluğu:</strong></p>
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">\( |\mathbf{r}_1| = d^\alpha s \)</li>
+    <li class="fragment fade-in">Teğet vektör normu, kesirli yay uzunluğu artımıdır</li>
+    <li class="fragment fade-in">
+      Eğer \( {}_0 D_s^\alpha s \approx 1 \) ise,  
+      \( |\mathbf{r}_1| \approx |{}_0 D_s^\alpha \mathbf{r}| \)
+    </li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .80em;">
+  <h2>Kesirli Teğet Doğrusu ve Normal Düzlem</h2>
+
+  <p class="fragment fade-in"><strong>3. Kesirli Teğet Doğrusu:</strong></p>
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">
+      Bir noktada:  
+      \( \mathbf{r}_0 = \mathbf{r}(s_0) \)
+    </li>
+    <li class="fragment fade-in">
+      Teğet doğrusu denklemi:  
+      \( \mathbf{r} = \mathbf{r}_0 + k \cdot \mathbf{t}_0 \)
+    </li>
+    <li class="fragment fade-in">
+      \( \mathbf{t}_0 = \mathbf{r}_1(s_0) \): kesirli teğet vektörü
+    </li>
+  </ul>
+
+  <p class="fragment fade-in" style="margin-top:.4em;"><strong>4. Kesirli Normal Düzlem:</strong></p>
+  <ul style="padding-left: 1.2em;">
+    <li class="fragment fade-in">
+      Nokta: \( \mathbf{r}_0 = \mathbf{r}(s_0) \)
+    </li>
+    <li class="fragment fade-in">
+      Düzlem denklemi: 
+      \( (\mathbf{y} - \mathbf{r}_0) \cdot \mathbf{r}_1(s_0) = 0 \)
+    </li>
+    <li class="fragment fade-in">
+      Bu düzlem, kesirli teğet vektörüne diktir.
+    </li>
+  </ul>
+
+  <div class="note-box fragment zoom-in" style="margin-top: 1em;">
+    <strong>Özet:</strong> Tüm yapılar klasik geometriyle aynıdır;
+    fark yalnızca teğet vektörünün <em>kesirli türevle</em> tanımlanmasıdır.
+  </div>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .70em;">
+  <h2>Kesirli Eğrilik Yarıçapı</h2>
+
+  <p class="fragment fade-in"><strong>Temel Amaç:</strong>  
+    Bir eğrinin bir noktada ne kadar "çember gibi" olduğunu  
+    <strong>kesirli diferansiyel uzayda</strong> ölçmek.
+  </p>
+
+  <p class="fragment fade-in" style="margin-top: .7em;"><strong>Geometrik Temel:</strong></p>
+  <div class="fragment fade-in note-box">
+    Çember denklemi:  
+    \[
+      (\mathbf{r} - \mathbf{c}) \cdot (\mathbf{r} - \mathbf{c}) = \rho^2
+    \]
+  </div>
+
+  <p class="fragment fade-in" style="margin-top: .7em;"><strong>Denklem Dönüşümü:</strong></p>
+  <div class="fragment fade-in">
+    \[
+      \mathbf{c} \cdot \mathbf{r} - \tfrac{1}{2} \mathbf{r} \cdot \mathbf{r}
+      = \tfrac{1}{2} (\mathbf{c} \cdot \mathbf{c} - \rho^2)
+    \]
+  </div>
+
+  <p class="fragment fade-in" style="margin-top: .7em;"><strong>Yardımcı Fonksiyon:</strong></p>
+  <div class="fragment fade-in">
+    \[
+      V(\mathbf{c}) = \mathbf{c} \cdot \mathbf{r}(t)
+      - \tfrac{1}{2} \mathbf{r}(t) \cdot \mathbf{r}(t)
+    \]
+  </div>
+</section>
+
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Kesirli Serret–Frenet Denklemleri</h2>
+
+  <p class="fragment fade-in"><strong>Temel Amaç:</strong>  
+    Klasik diferansiyel geometrideki teğet, normal, binormal yapıların  
+    <strong>kesirli türevler</strong> ile yeniden tanımlanması.
+  </p>
+
+  <p class="fragment fade-in" style="margin-top: .7em;"><strong>1. Teğet Vektör:</strong></p>
+  <div class="fragment fade-in">\[
+    \mathbf{t}(s) = \mathbf{r}_1(s) = {}_0^L D_s^\alpha\, \mathbf{r}(s) 
+  \]</div>
+
+  <p class="fragment fade-in" style="margin-top: .7em;"><strong>2. Normal Vektör:</strong></p>
+  <div class="fragment fade-in">\[
+    \mathbf{t}_1(s) = \mathbf{r}_2(s) = {}_0^L D_s^\alpha\, \mathbf{t}(s) 
+  \]</div>
+  <div class="fragment fade-in">\[
+    \mathbf{t}_1(s) \cdot \mathbf{t}(s) = 0
+  \]</div>
+</section>
+
+<section data-auto-animate style="padding:0 .5rem; font-size:.80em;">
+  <h2>Kesirli Serret–Frenet Yapıları</h2>
+
+  <p class="fragment fade-in"><strong>3. Eğrilik Merkezi Koşulları:</strong></p>
+  <div class="fragment fade-in">\[
+    (\mathbf{c} - \mathbf{r}) \cdot \mathbf{r}_1 = 0,\quad
+    (\mathbf{c} - \mathbf{r}) \cdot \mathbf{t}_1 = 1 
+  \]</div>
+
+  <p class="fragment fade-in" style="margin-top:.8em;"><strong>4. Kesirli Serret–Frenet Denklemleri:</strong></p>
+  <div class="fragment fade-in">\[
+    \begin{aligned}
+      \mathbf{t}_1 &= \kappa\, \mathbf{n} \\
+      \mathbf{n}_1 &= -\kappa\, \mathbf{t} + \tau\, \mathbf{b} \\
+      \mathbf{b}_1 &= -\tau\, \mathbf{n}
+    \end{aligned} \tag{*}
+  \]</div>
+
+  <ul style="padding-left:1.2em; margin-top:.6em;">
+    <li class="fragment fade-in">\( \kappa \): Kesirli eğrilik</li>
+    <li class="fragment fade-in">\( \tau \): Kesirli burulma</li>
+    <li class="fragment fade-in">\( \mathbf{b} = \mathbf{t} \times \mathbf{n} \): Binormal vektör</li>
+  </ul>
+</section>
+
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Düzlem Eğri & Eğrilik Vektörü</h2>
+
+  <p class="fragment fade-in"><strong>5. Düzlem Eğri:</strong></p>
+  <div class="fragment fade-in">\[
+    \mathbf{r}(x) = x\,\mathbf{i} + y(x)\,\mathbf{j}
+  \]</div>
+
+  <p class="fragment fade-in"><strong>Eğrilik merkezi koşulları:</strong></p>
+  <div class="fragment fade-in">\[
+    (c_x - x) + (c_y - y)\, {}_0^D D_x^\alpha y(x) = 0
+  \]</div>
+  <div class="fragment fade-in">\[
+    (c_y - y)\, {}_0^D D_x^\alpha \left( {}_0^L D_x^\alpha y \right)
+    - \left(1 + \left({}_0^D D_x^\alpha y\right)^2 \right) = 0
+  \]</div>
+
+  <p class="fragment fade-in" style="margin-top:.6em;"><strong>6. Eğrilik Vektörü:</strong></p>
+  <div class="fragment fade-in">\[
+    \boldsymbol{\rho}^\alpha = \rho_x^\alpha\,\mathbf{i} + \rho_y^\alpha\,\mathbf{j}
+    = (c_x - x)\,\mathbf{i} + (c_y - y)\,\mathbf{j} 
+  \]</div>
+</section>
+
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Bileşenler, Yakınsama ve Uygulamalar</h2>
+
+  <p class="fragment fade-in"><strong>Eğrilik Bileşenleri:</strong></p>
+  <div class="fragment fade-in">\[
+    \rho_x^\alpha =
+    -\frac{
+      \left(1 + \left({}_0^D D_x^\alpha y\right)^2\right)\cdot
+      {}_0^L D_x^\alpha y
+    }{
+      {}_0^D D_x^\alpha \left({}_0^L D_x^\alpha y\right)
+    }
+  \]</div>
+
+  <div class="fragment fade-in">\[
+    \rho_y^\alpha =
+    \frac{
+      1 + \left({}_0^D D_x^\alpha y\right)^2
+    }{
+      {}_0^D D_x^\alpha \left({}_0^L D_x^\alpha y\right)
+    }
+  \]</div>
+
+  <p class="fragment fade-in" style="margin-top:.7em;"><strong>Yakınsama:</strong></p>
+  <div class="fragment fade-in">\[
+    d^\alpha s = d^\alpha x + o((d^\alpha x)^2),\quad
+    \rho^\alpha \approx \frac{1}{{}_0^D D_x^\alpha ({}_0^L D_x^\alpha y)}
+  \]</div>
+
+  <div class="fragment fade-in" style="margin-top:.6em;">
+    <em>Hatırlatma:</em> 
+    \({}_0^D D_x^\alpha c = 0\) (sabitler için)
+  </div>
+
+  <div class="note-box fragment zoom-in" style="margin-top: .9em;">
+    <strong>Fiziksel Uygulamalar:</strong><br>
+    Fraktal eğriler, elastisite, biyomekanik, malzeme bilimi…
+  </div>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Klasik vs Kesirli Karşılaştırma</h2>
+
+  <table class="comp-table" style="width:100%; table-layout:fixed;">
+    <thead>
+      <tr>
+        <th>Klasik</th>
+        <th>Kesirli</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fragment fade-in"><td>\( \frac{d\mathbf{r}}{ds} \)</td><td>\( {}_0^L D_s^\alpha \mathbf{r} \)</td></tr>
+      <tr class="fragment fade-in"><td>\( \kappa \): Eğrilik</td><td>Kesirli \( \kappa \)</td></tr>
+      <tr class="fragment fade-in"><td>\( \tau \): Burulma</td><td>Kesirli \( \tau \)</td></tr>
+      <tr class="fragment fade-in"><td>Serret–Frenet</td><td>* Denklemleri</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Bir Yüzeyin Kesirli Teğet Düzlemi</h2>
+
+  <p class="fragment fade-in"><strong>Manifold (Yüzey) Tanımı:</strong></p>
+  <ul style="padding-left:1.2em;">
+    <li class="fragment fade-in">Yüzey noktaları: \( M(u,v) = \mathbf{x}(u,v) \)</li>
+    <li class="fragment fade-in">Koordinatlar: \( x_i = x_i(u,v), \ i=1,2,3 \)</li>
+    <li class="fragment fade-in">Tanım aralığı: \( u \in [u_1, u_2],\ v \in [v_1, v_2] \)</li>
+  </ul>
+
+  <p class="fragment fade-in" style="margin-top:.8em;"><strong>Kesirli Diferansiyel Uzaklık:</strong></p>
+  <div class="fragment fade-in">
+    \[
+      d^\alpha \mathbf{x} =
+      \frac{{}_0^L D_u^\alpha \mathbf{x}}{{}_0^L D_u^\alpha u}\,d^\alpha u +
+      \frac{{}_0^L D_v^\alpha \mathbf{x}}{{}_0^L D_v^\alpha v}\,d^\alpha v
+    \]
+  </div>
+
+  <p class="fragment fade-in">İki nokta arasındaki “sonsuz küçük” mesafeyi kesirli türevlerle ifade eder.</p>
+</section>
+
+<section data-auto-animate style="padding: 0 .25rem; font-size: .85em;">
+  <h2 style="margin-bottom: 0.4em;">Örnek: \( z = u^2v^2 \) Yüzeyi</h2>
+
+  <div class="fragment fade-in" style="margin-bottom: .6em;">
+    <strong>Kesirli Teğet Uzayı:</strong>
+    \[
+      d^\alpha \mathbf{r} =
+      d^\alpha x\, \mathbf{i} + d^\alpha y\, \mathbf{j} +
+      \frac{2xy}{2 - \alpha}(y\,d^\alpha x + x\,d^\alpha y)\, \mathbf{k}
+    \]
+  </div>
+
+  <p class="fragment fade-in" style="margin-bottom:.6em;">
+    Bu ifade, klasik teğet uzayının <strong>kesirli genellemesidir</strong>.
+  </p>
+
+  <div class="fragment fade-in" style="text-align: center;">
+    <img src="assets/sekil5.png"
+         alt="Şekil 1"
+         style="max-height: 20vh; width: auto; max-width: 100%; border-radius: 6px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);" />
+    <p style="font-size: .75em; margin-top: .4em;">
+      Şekil 5 – \( z = u^2 v^2 \) yüzeyi
+    </p>
+  </div>
+</section>
+
+
+<!-- <h2>Klasik ve Kesirli Teğet Düzlemleri-->
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2> <h2>Klasik ve Kesirli Teğet Düzlemleri</h2></h2>
+
+  <ul style="padding-left:1.2em;">
+    <li class="fragment fade-in"><strong>α = 1:</strong> Klasik türev → geleneksel teğet düzlem</li>
+    <li class="fragment fade-in"><strong>α = 0.3:</strong> Kesirli türev → kesirli teğet düzlem</li>
+    <li class="fragment fade-in">Klasik düzlem, noktaya tam teğet</li>
+    <li class="fragment fade-in">Kesirli düzlem, lokal pürüzlülüğü daha iyi yakalar</li>
+  </ul>
+
+  <div class="fragment fade-in" style="margin-top:1em; text-align:center;">
+    <img src="assets/sekil6.png" alt="Kesirli vs klasik teğet düzlem" style="max-width:85%; border-radius:6px;" />
+    <p style="font-size:.8em; margin-top:.3em;">Şekil 2 – (u,v) = (0.5, 0.5) noktasındaki karşılaştırma</p>
+  </div>
+</section>
+
+<section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
+  <h2>Fiziksel Anlam ve Gözlemler</h2>
+
+  <ul style="padding-left:1.2em;">
+    <li class="fragment fade-in">
+      Kesirli teğet düzlem, klasik düzlemden <strong>belirgin şekilde farklıdır</strong>
+    </li>
+    <li class="fragment fade-in">
+      \( \alpha \) azaldıkça düzlemin eğimi değişir → yüzeyin lokal davranışına duyarlı hale gelir
+    </li>
+    <li class="fragment fade-in">
+      Pürüzlü, fraktal veya klasik türevlenemeyen yüzeylerde <strong>daha uygun</strong> bir tanım sunar
+    </li>
+    <li class="fragment fade-in">
+      Bu yaklaşım, klasik diferansiyel geometrinin <em>kesirli genellemesidir</em>
+    </li>
+  </ul>
+</section>
+
+<section style="padding: 0 .5rem; font-size: .8em;">
+  <h2>Sonuç</h2>
+
+  <p class="fragment fade-in">
+    Kesirli diferansiyel geometri, klasik türev kavramının ötesine geçerek
+    <strong>fraktal, pürüzlü veya klasik anlamda türevlenemeyen yüzeyleri</strong>
+    tanımlamak ve analiz etmek için güçlü bir çerçeve sunar.
+  </p>
+
+  <p class="fragment fade-in">
+    Bu bağlamda, <strong>kesirli teğet düzlemi</strong> kavramı:
+    <ul class="fragment fade-in" style="padding-left:1.2em;">
+      <li>
+        Klasik geometriyle yapısal tutarlılığını korur,
+      </li>
+      <li>
+        Ancak yüzeyin yerel davranışını <em>kesirli mertebede</em> dikkate alır,
+      </li>
+      <li>
+        Ve özellikle <strong>düzgün olmayan yüzeylerin</strong> daha gerçekçi şekilde modellenmesini sağlar.
+      </li>
+    </ul>
+  </p>
+
+  <p class="fragment fade-in">
+    Dolayısıyla, bu yaklaşım sadece teorik değil, aynı zamanda
+    <strong>malzeme bilimi, fraktal modelleme, biyomekanik ve sayısal analiz</strong> gibi çok sayıda uygulama alanı için de yenilikçi çözümler sunmaktadır.
+  </p>
+</section>
+
+
+
+
+<style>
+  .note-box {
+    background: #f7f7f7;
+    border-left: 4px solid var(--r-link-color);
+    border-radius: 4px;
+    padding: .6em .9em;
+    margin-top: .6em;
+  }
+</style>
+
+
+<!-- Küçük tablo stili (sunumda bir kez tanımlamak yeterli) -->
+<style>
+  .feat-table{
+    border-collapse:collapse;
+    word-wrap:break-word;
+  }
+  .feat-table th,
+  .feat-table td{
+    padding:.35em .5em;
+    border-bottom:1px solid #ddd;
+    vertical-align:top;
+  }
+  .feat-table th{ background:#f5f5f5; }
+</style>
+
+
+<!-- (Önceki mesajlarda yoksa ekleyin) -->
+<style>
+  .note-box{
+    background:#f7f7f7;
+    border-left:4px solid var(--r-link-color);
+    border-radius:4px;
+    padding:.6em .9em;
+  }
+  .alert-box{
+    background:#fffbe6;
+    border-left:4px solid #f1c40f;
+    border-radius:4px;
+    padding:.6em .9em;
+    margin-top:.9em;
+  }
+  .note-box {
+    background: #f7f7f7;
+    border-left: 4px solid var(--r-link-color);
+    border-radius: 4px;
+    padding: .6em .9em;
+  }
+  .comp-table {
+    border-collapse: collapse;
+    word-wrap: break-word;
+  }
+  .comp-table th,
+  .comp-table td {
+    padding: .35em .45em;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  .comp-table th {
+    background: #f0f8ff;
+  }
+</style>
+
+
+
+        <style>
+          svg text {
+            fill: #f0f0f0;
+            font-family: inherit;
+          }
+          svg circle {
+            stroke: #fff;
+            stroke-width: 1.2px;
+          }
+        </style>
+
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+
+    <script src="plugin/math/math.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
