@@ -13,24 +13,22 @@
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/moon.css" />
 
-    <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section
+<!-- ─────────────  SLAYT 1 — Kesirli Türev & Hafıza Etkisi  ──────────────── -->
+<section
           data-auto-animate
           data-background-color="#fafafa"
           style="font-size: 0.9em"
         >
-          <!-- Başlık animasyonu -->
           <h2 data-id="title">
             Kesirli Türev
             <span style="font-weight: 300">& Hafıza Etkisi</span>
           </h2>
 
-          <!-- Tanım -->
           <p class="fragment fade-in-then-semi-out" data-fragment-index="0">
             Kesirli türev, bir sistemin geçmiş durumlarını <em>unutmayıp</em> ve
             bu geçmişi uygun bir ağırlık fonksiyonuyla hesaba katarak sistemin
@@ -41,12 +39,10 @@
             <strong>Nasıl yani?</strong>
           </p>
 
-          <!-- α açıklaması -->
           <p class="fragment fade-in" data-fragment-index="2">
-            Türevin derecesi \(0 &lt; \alpha &lt; 1\) aralığındaysa:
+            Türevin derecesi \(0 < \alpha < 1\) aralığındaysa:
           </p>
 
-          <!-- Madde listesi -->
           <ul>
             <li class="fragment fade-right" data-fragment-index="3">
               \( \alpha \to 1 \): Sistem geçmişi daha az önemser, anlık değişime
@@ -60,11 +56,11 @@
             </li>
           </ul>
         </section>
-
-        <section data-auto-animate style="padding: 0 1rem; font-size: 0.95em">
+<!-- ─────────────  SLAYT 2 — Bir Analoji: Yankı & Gitar Teli  ──────────────── -->
+<section data-auto-animate style="padding: 0 1rem; font-size: 0.95em">
           <h2>
             Bir Analoji:
-            <span style="font-weight: 300">Yankı &amp; Gitar Teli</span>
+            <span style="font-weight: 300">Yankı & Gitar Teli</span>
           </h2>
 
           <p class="fragment fade-in-then-semi-out">
@@ -87,10 +83,9 @@
             </li>
           </ul>
         </section>
-
-        <!-- SLAYT 1 / 2 ------------------------------------------------------------>
-        <section data-auto-animate style="font-size: 0.70em;">
-          <h2>Klasik vs Kesirli Türev</small></h2>
+<!-- ─────────────  SLAYT 3 — Klasik vs Kesirli Türev  ──────────────── -->
+<section data-auto-animate style="font-size: 0.70em;">
+          <h2>Klasik vs Kesirli Türev</h2>
           <table class="comparison" style="width: 100%; table-layout: fixed">
             <thead>
               <tr>
@@ -100,13 +95,11 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Mertebe ---------------------------------------------------------->
               <tr class="fragment fade-in">
                 <td><strong>Mertebe</strong></td>
                 <td>Tam sayı \(1,2,3,\dots\)</td>
                 <td>Reel / kompleks \( \alpha\in\mathbb{R}\cup\mathbb{C} \)</td>
               </tr>
-              <!-- Tanım ------------------------------------------------------------>
               <tr class="fragment fade-in">
                 <td><strong>Tanım</strong></td>
                 <td>
@@ -118,7 +111,6 @@
                   tam-sayı türevi ile kesirli integrali birleştirir.
                 </td>
               </tr>
-              <!-- Yerel / Global --------------------------------------------------->
               <tr class="fragment fade-in">
                 <td><strong>Yerel / Global</strong></td>
                 <td>
@@ -134,10 +126,8 @@
             </tbody>
           </table>
         </section>
-
-        <!-- SLAYT 2 / 2 ------------------------------------------------------------>
-        <section data-auto-animate style="font-size: 0.70em;">
-          <!-- style etiketini CSS'e taşıdık -->
+<!-- ─────────────  SLAYT 4 — Klasik vs Kesirli Türev  ──────────────── -->
+<section data-auto-animate style="font-size: 0.70em;">
           <h2>Klasik vs Kesirli Türev</h2>
           <table class="comparison" style="width: 100%; table-layout: fixed">
             <thead>
@@ -148,7 +138,6 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Başlangıç koşulları --------------------------------------------->
               <tr class="fragment fade-in">
                 <td><strong>Başlangıç koşulları</strong></td>
                 <td>2. mertebe ODE için \(y(0)\) ve \(y'(0)\) yeterlidir.</td>
@@ -156,7 +145,6 @@
                   Caputo tanımını kullansanız bile, kesirli mertebe $\alpha$ için $\lceil\alpha\rceil$ adet klasik başlangıç koşulu gerekir; çünkü çözüm, sistemin geçmişine duyarlıdır.
                 </td>
               </tr>
-              <!-- Fiziksel yorum --------------------------------------------------->
               <tr class="fragment fade-in">
                 <td><strong>Fiziksel yorumu</strong></td>
                 <td>Anlık hız, ivme vb.</td>
@@ -171,9 +159,8 @@
             <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em"><strong>Not:</strong> $\lceil\alpha\rceil$ = Ceiling (Tavan) Fonksiyonu</p>
             <p class="fragment fade-in-then-semi-out" style="font-size: 0.85em"><strong>Not:</strong> Kesirli türev, klasik türevin genellemesi değildir; farklı bir operatördür.</p>
         </section>
-
-        <!-- tarihi ------------------------------------------------>
-        <section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
+<!-- ─────────────  SLAYT 5 — Kesirli Türev Nasıl Ortaya Çıktı?  ──────────────── -->
+<section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
           <h2>Kesirli Türev Nasıl Ortaya Çıktı?</h2>
 
           <ul style="padding-left: 1.2em">
@@ -199,8 +186,8 @@
             </li>
           </ul>
         </section>
-
-        <section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
+<!-- ─────────────  SLAYT 6 — Kesirli Kalkülüsün Temelleri  ──────────────── -->
+<section data-auto-animate style="padding: 0 0.6rem; font-size: 0.9em">
           <h2>Kesirli Kalkülüsün Temelleri</h2>
 
           <ul style="padding-left: 1.2em">
@@ -222,14 +209,11 @@
             </li>
           </ul>
         </section>
-
-        <!------------------------>
-        <section data-auto-animate style="padding: 0 0.6rem">
+<!-- ─────────────  SLAYT 7 — Kronolojik Özet  ──────────────── -->
+<section data-auto-animate style="padding: 0 0.6rem">
           <h2>Kronolojik Özet</h2>
 
-          <!-- Basit yatay zaman çizgisi -->
           <svg width="100%" height="110" viewBox="0 0 1000 110">
-            <!-- Ana ok -->
             <line
               x1="40"
               y1="60"
@@ -240,9 +224,6 @@
             />
             <polygon points="960,60 945,54 945,66" fill="#555" />
 
-            <!-- İmleri tanımla: {x konumu, yıl, etiket} -->
-            <!-- Konumlar doğrusal ölçekle elde: 1695-1967 arası yaklaşık 272 yıl -->
-            <!-- Basitlik için manuel değerler verilmiştir -->
             <g font-size="12" text-anchor="middle">
               <g class="fragment fade-in">
                 <circle cx="90" cy="60" r="4" fill="#c0392b" />
@@ -275,9 +256,8 @@
             rol oynamıştır.)
           </p>
         </section>
-
-        <!--buraya örnek grafik gelecek-->
-        <section data-auto-animate style="padding:0.6rem;">
+<!-- ─────────────  SLAYT 8 — Kesirli Türevin Çalışması  ──────────────── -->
+<section data-auto-animate style="padding:0.6rem;">
           <h2>Kesirli Türevin Çalışması</h2>
                       <p class="fragment fade-in-then-semi-out" style="font-size:.85em;">
               \(f(x) = x^2\) fonksiyonu.
@@ -288,15 +268,12 @@
               class="fragment fade-in" />
 
         </section>
-
-        <!-- KÜTÜPHANE: Reveal Math eklentiniz yüklü olsun ----------------------->
-
-<!-- -------------  RL KESİRLİ İNTEGRAL • TANIM  ------------------------->
+<!-- ─────────────  SLAYT 9 — RL Kesirli İntegral  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>RL Kesirli İntegral</h2>
 
   <div class="note-box fragment fade-in">
-    <strong>Tanım (Riemann–Liouville)</strong><br>
+    <strong>Tanım (Riemann–Liouville)</strong><br/>
     \[
       J_a^{\alpha} f(x)=
       \frac{1}{\Gamma(\alpha)}
@@ -309,10 +286,8 @@
     <em>Önce formülü görelim; ayrıntılara az sonra geçeceğiz.</em>
   </p>
 </section>
-
-
-        <!--buraya örnek grafik gelecek-->
-        <section data-auto-animate style="padding:0.6rem;">
+<!-- ─────────────  SLAYT 10 — Kesirli İntegralin Çalışması  ──────────────── -->
+<section data-auto-animate style="padding:0.6rem;">
           <h2>Kesirli İntegralin Çalışması</h2>
           <img src="assets/RLiouville.gif"
               alt="Kesirli integralini işleyişini gösteren animasyon"
@@ -320,8 +295,7 @@
               class="fragment fade-in" />
 
         </section>
-
-<!-- -------------  RL KESİRLİ İNTEGRAL • ÖZELLİKLER  -------------------->
+<!-- ─────────────  SLAYT 11 — RL Kesirli İntegral — Özellikler  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>RL Kesirli İntegral — Özellikler</h2>
 
@@ -335,13 +309,12 @@
   </ul>
 
   <div class="note-box fragment zoom-in" style="margin-top:.8em;">
-    <strong>Fikir:</strong>&nbsp;
+    <strong>Fikir:</strong> 
     \((n-1)! \;\longrightarrow\; \Gamma(\alpha)\)
     ile integral mertebesi <em>sürekli</em> yapılır.
   </div>
 </section>
-
-<!-- -------------  CAUCHY • KLASİK N‐KATLI İNTEGRAL  -------------------->
+<!-- ─────────────  SLAYT 12 — Cauchy’nin Çok Katlı İntegrali  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Cauchy’nin Çok Katlı İntegrali</h2>
 
@@ -354,20 +327,17 @@
     \]
   </p>
 </section>
-
-<!-- ─────────────  SLAYT 1 — RL Tanımının Geçerliliği  ──────────────── -->
+<!-- ─────────────  SLAYT 13 — RL Tanımının Geçerliliği  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>RL Tanımının Geçerliliği</h2>
 
-  <!-- Teorem kutusu -->
   <div class="note-box fragment fade-in">
-    <strong>Teorem.</strong><br>
-    Eğer \(f \in L_1[a,b]\) ve \(n &gt; 0\) ise<br>
-    \(J_a^{n}f\) tanımlıdır ve&nbsp;
+    <strong>Teorem.</strong><br/>
+    Eğer \(f \in L_1[a,b]\) ve \(n > 0\) ise<br/>
+    \(J_a^{n}f\) tanımlıdır ve 
     \(J_a^{n}f \in L_1[a,b]\).
   </div>
 
-  <!-- Yorum -->
   <ul style="padding-left:1em; margin-top:.8em;">
     <li class="fragment fade-in">
       RL integrali teorik olmanın ötesinde,
@@ -379,9 +349,8 @@
     </li>
   </ul>
 
-  <!-- Temel fikir formülü -->
   <p class="fragment fade-in" style="margin-top:.8em;">
-    <strong>Temel Fikir:</strong><br>
+    <strong>Temel Fikir:</strong><br/>
     \[
       J_a^{n} f(x)=
       \frac{1}{\Gamma(n)}
@@ -391,10 +360,7 @@
     integral her \(f\in L_1\) için tanımlıdır.
   </p>
 </section>
-
-
-
-<!-- -------------  CAUCHY → RL GENELLEME  ------------------------------->
+<!-- ─────────────  SLAYT 14 — Cauchy → RL Genellemesi  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Cauchy → RL Genellemesi</h2>
 
@@ -411,12 +377,10 @@
   </ul>
 
   <div class="note-box fragment zoom-in" style="margin-top:.8em;">
-    <strong>Sonuç:</strong>&nbsp;
+    <strong>Sonuç:</strong> 
     Cauchy çok katlı integrali → Riemann-Liouville kesirli integrale.
   </div>
 </section>
-
-<!-- ------------------  KUTU STİLLERİ  ---------------------------------->
 <style>
   .note-box{
     background:#f7f7f7;                       /* nötr açık gri */
@@ -425,15 +389,13 @@
     padding:.6em .9em;
   }
 </style>
-
-
+<!-- ─────────────  SLAYT 15 — RL Kesirli Türev  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
 
   <h2>RL Kesirli Türev</h2>
 
-  <!-- Tanım kutusu – animasyon yok, her zaman opak -->
   <div class="note-box">
-    <strong>Tanım (Riemann–Liouville)</strong><br>
+    <strong>Tanım (Riemann–Liouville)</strong><br/>
     \[
       {}_a D_x^{\alpha} f(x)=
       \frac{d^{m}}{dx^{m}}
@@ -445,7 +407,7 @@
 
   <ul style="margin-top:.8em;">
     <li class="fragment fade-in">
-      İlk adım &raquo; $J_a^{\,m-\alpha} f(x)$ kesirli integralini al.
+      İlk adım » $J_a^{\,m-\alpha} f(x)$ kesirli integralini al.
     </li>
     <li class="fragment fade-in">
       Sonra $m$-inci türevi uygula $\bigl(\tfrac{d^{m}}{dx^{m}}\bigr)$.
@@ -456,14 +418,12 @@
     </li>
   </ul>
 </section>
-
-
-<!-- ────────────  SLAYT 1 — Caputo Türevinin Tanımı  ──────────── -->
+<!-- ─────────────  SLAYT 16 — Caputo Türevi  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Caputo Türevi</h2>
 
   <div class="note-box fragment fade-in">
-    <strong>Tanım (Caputo, 1967)</strong><br>
+    <strong>Tanım (Caputo, 1967)</strong><br/>
     \[
       {}_a^{\mathrm C}\!D_x^{\alpha} f(x)=
       \frac{1}{\Gamma(1-\alpha)}
@@ -483,21 +443,20 @@
     </li>
   </ul>
 </section>
-
-<!-- ────────────  SLAYT 2 — Sabit Fonksiyon Özelliği  ──────────── -->
+<!-- ─────────────  SLAYT 17 — Caputo vs RL — Sabit Fonksiyon  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Caputo vs RL — Sabit Fonksiyon</h2>
 
   <ul style="padding-left:1em;">
     <li class="fragment fade-in">
-      <strong>Caputo:</strong>&nbsp; 
+      <strong>Caputo:</strong>  
       Eğer \(f(x)=C\) sabitse \(\displaystyle
       {}_a^{\mathrm C}\!D_x^{\alpha} C = 0\)
       (çünkü \(f'(s)=0\)). 
     </li>
 
     <li class="fragment fade-in">
-      <strong>Riemann–Liouville:</strong>&nbsp; 
+      <strong>Riemann–Liouville:</strong>  
       \(\displaystyle
       {}_a^{\mathrm{RL}}\!D_x^{\alpha} C =
       \frac{C}{\Gamma(1-\alpha)}(x-a)^{-\alpha}\neq0\).
@@ -505,14 +464,13 @@
   </ul>
 
   <div class="alert-box fragment zoom-in">
-    <strong>Önemli fark:</strong>&nbsp;
+    <strong>Önemli fark:</strong> 
     Caputo türevi sabit fonksiyonları <em>aynen sıfıra</em> indirger;
     RL türeviyse çekirdeği nedeniyle
     sabitte bile sıfırdan farklıdır.
   </div>
 </section>
-
-<!-- ────────── SLAYT 1 • RL vs Caputo Karşılaştırması ────────── -->
+<!-- ─────────────  SLAYT 18 — Riemann–Liouville vs Caputo  ──────────────── -->
 <section data-auto-animate style="font-size:.7em;">
   <h2>Riemann–Liouville vs Caputo</h2>
 
@@ -526,28 +484,24 @@
     </thead>
 
     <tbody>
-      <!-- Sıra --------------------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Sıra</strong></td>
         <td style="color:var(--r-link-color);"><em>İlk integral, sonra türev</em></td>
         <td style="color:#d32f2f;"><em>İlk türev, sonra integral</em></td>
       </tr>
 
-      <!-- Başlangıç koşulu -------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Başlangıç koşulu</strong></td>
         <td>Kesirli-mertebe türevler içerir</td>
         <td>Klasik türevler içerir, <em>Daha sezgisel</em></td>
       </tr>
 
-      <!-- Sabit fonksiyon --------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Sabit fonksiyon \(C\)</strong></td>
         <td>\({}_aD_x^{\alpha}C=\dfrac{C\,(x-a)^{-\alpha}}{\Gamma(1-\alpha)}\neq0\)</td>
         <td>\({}^{\mathrm C}\!{}_aD_x^{\alpha}C=0\)</td>
       </tr>
 
-      <!-- Kullanım ----------------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Kullanım</strong></td>
         <td>Teorik analiz, soyut uzaylar</td>
@@ -556,7 +510,6 @@
     </tbody>
   </table>
 
-  <!-- Özet kutusu -->
   <div class="alert-box fragment zoom-in" style="margin-top:.8em;">
     <strong>Ne zaman hangisi?</strong>
     <ul style="margin:.4em 0 .2em 1em; font-size:.9em;">
@@ -565,22 +518,18 @@
     </ul>
   </div>
 </section>
-
-
-
-<!-- ────────── SLAYT 2 • Leibniz-L Türevi ──────────────────── -->
+<!-- ─────────────  SLAYT 19 — Leibniz-L Türevi  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Leibniz-L Türevi</h2>
 
   <div class="note-box fragment fade-in">
-    <strong>Temel Amaç</strong><br>
+    <strong>Temel Amaç</strong><br/>
     Kesirli diferansiyel \(d^{\alpha}f(x)\), yalnızca pozitif \(dx\) için değil,  
     hem pozitif hem de negatif artımlar için <strong>gerçel değerli</strong>
     ve <strong>geometrik anlamlı</strong> bir ifade olmalıdır.
   </div>
 </section>
-
-<!-- ────────────  Leibniz-L Türevi • Özellikler ──────────── -->
+<!-- ─────────────  SLAYT 20 — Leibniz-L Türevi — Özellikler  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.70em;">
   <h2>Leibniz-L Türevi — Özellikler</h2>
 
@@ -593,7 +542,6 @@
     </thead>
 
     <tbody>
-      <!-- Tanım --------------------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Tanım</strong></td>
         <td>
@@ -605,7 +553,6 @@
         </td>
       </tr>
 
-      <!-- Temeli -------------------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Temeli</strong></td>
         <td>
@@ -614,7 +561,6 @@
         </td>
       </tr>
 
-      <!-- Fiziksel anlamı ---------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Fiziksel anlamı</strong></td>
         <td>
@@ -624,7 +570,6 @@
         </td>
       </tr>
 
-      <!-- Geometrik rolü ----------------------------------------------- -->
       <tr class="fragment fade-in">
         <td><strong>Geometrik rolü</strong></td>
         <td>
@@ -633,7 +578,6 @@
         </td>
       </tr>
 
-      <!-- Avantajı ------------------------------------------------------ -->
       <tr class="fragment fade-in">
         <td><strong>Avantajı</strong></td>
         <td>
@@ -645,8 +589,7 @@
     </tbody>
   </table>
 </section>
-
-<!-- SLAYT — Leibniz-L Türevinin Tanımı --------------------------------->
+<!-- ─────────────  SLAYT 21 — Leibniz-L Türevinin Tanımı  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Leibniz-L Türevinin Tanımı</h2>
 
@@ -671,8 +614,7 @@
     </li>
   </ul>
 </section>
-
-
+<!-- ─────────────  SLAYT 22 — Kesirli Teğet Uzayı: Ne Anlama Geliyor?  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Teğet Uzayı: Ne Anlama Geliyor?</h2>
 
@@ -684,8 +626,7 @@
     Peki, kesirli türev (örneğin \( \alpha = 0.5 \)) kullanırsak, hâlâ eğriye "doğru gibi" bir teğet çizebilir miyiz?
   </p>
 </section>
-
-
+<!-- ─────────────  SLAYT 23 — Kesirli Teğet Uzayı  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Teğet Uzayı</h2>
 
@@ -698,8 +639,7 @@
     <li class="fragment fade-in">Dikey eksen: \( d^\alpha f(x) \)</li>
   </ul>
 </section>
-
-
+<!-- ─────────────  SLAYT 24 — Kesirli Teğet Doğrusu Ne Anlatır?  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Teğet Doğrusu Ne Anlatır?</h2>
 
@@ -711,7 +651,7 @@
     <li class="fragment fade-in">Yerel olarak fonksiyonun kesirli davranışını temsil eder.</li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 25 — Klasik ve Kesirli Teğet Karşılaştırması  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Klasik ve Kesirli Teğet Karşılaştırması</h2>
 
@@ -738,7 +678,7 @@
     </tbody>
   </table>
 </section>
-
+<!-- ─────────────  SLAYT 26 — Kesirli Ark Uzunluğu: Kavram ve Amaç  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Ark Uzunluğu: Kavram ve Amaç</h2>
 
@@ -748,13 +688,13 @@
   </p>
 
   <div class="note-box fragment fade-in" style="margin-top: 1em;">
-    <strong>Temel Amaç</strong><br>
+    <strong>Temel Amaç</strong><br/>
     Eğer bir fonksiyon \( y = f(x) \) klasik anlamda türevlenemiyorsa ancak
     <em>kesirli mertebeden türevlenebilir</em>se, bu eğrinin uzunluğu nasıl hesaplanır?  
-    <br><br>
+    <br/><br/>
   </div>
 </section>
-
+<!-- ─────────────  SLAYT 27 — Kesirli Ark Uzunluğu  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Ark Uzunluğu</h2>
 
@@ -777,7 +717,7 @@
     </li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 28 — Kesirli Ark Uzunluğu – Tek Değişkenli  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Ark Uzunluğu – Tek Değişkenli</h2>
 
@@ -802,7 +742,7 @@
     </li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 29 — Parametrik Eğrilerde Kesirli Ark Uzunluğu  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .75em;">
   <h2>Parametrik Eğrilerde Kesirli Ark Uzunluğu</h2>
 
@@ -839,12 +779,11 @@
 
   <div class="note-box fragment fade-in" style="margin-top: 1em;">
     Notasyon: 
-    \({}_0^L D_x^\alpha\) = Leibniz-L kesirli türevi,<br>
+    \({}_0^L D_x^\alpha\) = Leibniz-L kesirli türevi,<br/>
     \({}_0^L I_x^\alpha\) = kesirli integral operatörü.
   </div>
 </section>
-
-
+<!-- ─────────────  SLAYT 30 — Kesirli Ark Uzunluğunun Önemi ve Uygulama Alanları  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Ark Uzunluğunun Önemi ve Uygulama Alanları</h2>
 
@@ -852,7 +791,7 @@
 
   <ul style="padding-left: 1.2em; margin-top: .4em;">
     <li class="fragment fade-in">
-      <strong>Klasik türevi tanımlı olmayan fonksiyonlar:</strong><br>
+      <strong>Klasik türevi tanımlı olmayan fonksiyonlar:</strong><br/>
       Fraktal eğriler gibi düzgün olmayan geometrilerin "uzunluğunu" ölçmek için uygundur.  
       Klasik türev tanımsız olsa bile, <em>kesirli türev</em> tanımlı olabilir.
     </li>
@@ -867,7 +806,7 @@
     </li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 31 — Kesirli Teğet Yapıları  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Kesirli Teğet Yapıları</h2>
 
@@ -900,7 +839,7 @@
     </li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 32 — Kesirli Teğet Doğrusu ve Normal Düzlem  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .80em;">
   <h2>Kesirli Teğet Doğrusu ve Normal Düzlem</h2>
 
@@ -938,7 +877,7 @@
     fark yalnızca teğet vektörünün <em>kesirli türevle</em> tanımlanmasıdır.
   </div>
 </section>
-
+<!-- ─────────────  SLAYT 33 — Kesirli Eğrilik Yarıçapı  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .70em;">
   <h2>Kesirli Eğrilik Yarıçapı</h2>
 
@@ -971,7 +910,7 @@
     \]
   </div>
 </section>
-
+<!-- ─────────────  SLAYT 34 — Kesirli Serret–Frenet Denklemleri  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Kesirli Serret–Frenet Denklemleri</h2>
 
@@ -993,7 +932,7 @@
     \mathbf{t}_1(s) \cdot \mathbf{t}(s) = 0
   \]</div>
 </section>
-
+<!-- ─────────────  SLAYT 35 — Kesirli Serret–Frenet Yapıları  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.80em;">
   <h2>Kesirli Serret–Frenet Yapıları</h2>
 
@@ -1018,7 +957,7 @@
     <li class="fragment fade-in">\( \mathbf{b} = \mathbf{t} \times \mathbf{n} \): Binormal vektör</li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 36 — Düzlem Eğri & Eğrilik Vektörü  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Düzlem Eğri & Eğrilik Vektörü</h2>
 
@@ -1042,7 +981,7 @@
     = (c_x - x)\,\mathbf{i} + (c_y - y)\,\mathbf{j} 
   \]</div>
 </section>
-
+<!-- ─────────────  SLAYT 37 — Bileşenler, Yakınsama ve Uygulamalar  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>Bileşenler, Yakınsama ve Uygulamalar</h2>
 
@@ -1078,11 +1017,11 @@
   </div>
 
   <div class="note-box fragment zoom-in" style="margin-top: .9em;">
-    <strong>Fiziksel Uygulamalar:</strong><br>
+    <strong>Fiziksel Uygulamalar:</strong><br/>
     Fraktal eğriler, elastisite, biyomekanik, malzeme bilimi…
   </div>
 </section>
-
+<!-- ─────────────  SLAYT 38 — Klasik vs Kesirli Karşılaştırma  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Klasik vs Kesirli Karşılaştırma</h2>
 
@@ -1101,7 +1040,7 @@
     </tbody>
   </table>
 </section>
-
+<!-- ─────────────  SLAYT 39 — Bir Yüzeyin Kesirli Teğet Düzlemi  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Bir Yüzeyin Kesirli Teğet Düzlemi</h2>
 
@@ -1123,7 +1062,7 @@
 
   <p class="fragment fade-in">İki nokta arasındaki “sonsuz küçük” mesafeyi kesirli türevlerle ifade eder.</p>
 </section>
-
+<!-- ─────────────  SLAYT 40 — Örnek: z = u²v² Yüzeyi  ──────────────── -->
 <section data-auto-animate style="padding: 0 .25rem; font-size: .85em;">
   <h2 style="margin-bottom: 0.4em;">Örnek: \( z = u^2v^2 \) Yüzeyi</h2>
 
@@ -1150,12 +1089,9 @@
     </p>
   </div>
 </section>
-
-
-<!-- <h2>Klasik ve Kesirli Teğet Düzlemleri-->
-
+<!-- ─────────────  SLAYT 41 — Klasik ve Kesirli Teğet Düzlemleri  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
-  <h2> <h2>Klasik ve Kesirli Teğet Düzlemleri</h2></h2>
+  <h2>Klasik ve Kesirli Teğet Düzlemleri</h2>
 
   <ul style="padding-left:1.2em;">
     <li class="fragment fade-in"><strong>α = 1:</strong> Klasik türev → geleneksel teğet düzlem</li>
@@ -1169,7 +1105,7 @@
     <p style="font-size:.8em; margin-top:.3em;">Şekil 2 – (u,v) = (0.5, 0.5) noktasındaki karşılaştırma</p>
   </div>
 </section>
-
+<!-- ─────────────  SLAYT 42 — Fiziksel Anlam ve Gözlemler  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Fiziksel Anlam ve Gözlemler</h2>
 
@@ -1188,7 +1124,7 @@
     </li>
   </ul>
 </section>
-
+<!-- ─────────────  SLAYT 43 — Sonuç  ──────────────── -->
 <section style="padding: 0 .5rem; font-size: .8em;">
   <h2>Sonuç</h2>
 
@@ -1218,10 +1154,6 @@
     <strong>malzeme bilimi, fraktal modelleme, biyomekanik ve sayısal analiz</strong> gibi çok sayıda uygulama alanı için de yenilikçi çözümler sunmaktadır.
   </p>
 </section>
-
-
-
-
 <style>
   .note-box {
     background: #f7f7f7;
@@ -1231,9 +1163,6 @@
     margin-top: .6em;
   }
 </style>
-
-
-<!-- Küçük tablo stili (sunumda bir kez tanımlamak yeterli) -->
 <style>
   .feat-table{
     border-collapse:collapse;
@@ -1247,9 +1176,6 @@
   }
   .feat-table th{ background:#f5f5f5; }
 </style>
-
-
-<!-- (Önceki mesajlarda yoksa ekleyin) -->
 <style>
   .note-box{
     background:#f7f7f7;
@@ -1284,9 +1210,6 @@
     background: #f0f8ff;
   }
 </style>
-
-
-
         <style>
           svg text {
             fill: #f0f0f0;
@@ -1307,13 +1230,9 @@
     <script src="plugin/math/math.js"></script>
 
     <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
 
-        // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
