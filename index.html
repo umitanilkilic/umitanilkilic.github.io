@@ -360,6 +360,29 @@
     \]
   </p>
 </section>
+
+<!-- ─────────────  SLAYT 14 — Cauchy → RL Genellemesi  ──────────────── -->
+<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
+  <h2>Cauchy → RL Genellemesi</h2>
+
+  <ul style="padding-left:1em;">
+    <li class="fragment fade-in">
+      \((n-1)! \;\longrightarrow\; \Gamma(\alpha)\)
+    </li>
+    <li class="fragment fade-in">
+      \(n\in\mathbb N \;\longrightarrow\; \alpha\in\mathbb R^{+}\)
+    </li>
+    <li class="fragment fade-in">
+      Böylece \(J_a^{\alpha} f(x)\) formülü elde edilir.
+    </li>
+  </ul>
+
+  <div class="note-box fragment zoom-in" style="margin-top:.8em;">
+    <strong>Sonuç:</strong> 
+    Cauchy çok katlı integrali → Riemann-Liouville kesirli integrale.
+  </div>
+</section>
+
 <!-- ─────────────  SLAYT 13 — RL Tanımının Geçerliliği  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
   <h2>RL Tanımının Geçerliliği</h2>
@@ -393,27 +416,7 @@
     integral her \(f\in L_1\) için tanımlıdır.
   </p>
 </section>
-<!-- ─────────────  SLAYT 14 — Cauchy → RL Genellemesi  ──────────────── -->
-<section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
-  <h2>Cauchy → RL Genellemesi</h2>
 
-  <ul style="padding-left:1em;">
-    <li class="fragment fade-in">
-      \((n-1)! \;\longrightarrow\; \Gamma(\alpha)\)
-    </li>
-    <li class="fragment fade-in">
-      \(n\in\mathbb N \;\longrightarrow\; \alpha\in\mathbb R^{+}\)
-    </li>
-    <li class="fragment fade-in">
-      Böylece \(J_a^{\alpha} f(x)\) formülü elde edilir.
-    </li>
-  </ul>
-
-  <div class="note-box fragment zoom-in" style="margin-top:.8em;">
-    <strong>Sonuç:</strong> 
-    Cauchy çok katlı integrali → Riemann-Liouville kesirli integrale.
-  </div>
-</section>
 <style>
   .note-box{
     background:#f7f7f7;
@@ -472,7 +475,7 @@
     </li>
     <li class="fragment fade-in">
       Bu sayede başlangıç koşulları, 
-      klasik ODE formundaki \(f(0),f'(0)\dots\) verileriyle rahat uyum sağlar.
+      klasik ODE formundaki \(f(0),f'(0)\dots\) koşulları ile rahat uyum sağlar.
     </li>
   </ul>
 </section>
@@ -711,12 +714,12 @@
     </tbody>
   </table>
 </section>
-<!-- ─────────────  SLAYT 26 — Kesirli Ark Uzunluğu: Kavram ve Amaç  ──────────────── -->
+<!-- ─────────────  SLAYT 26 — Kesirli Yay Uzunluğu: Kavram ve Amaç  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
-  <h2>Kesirli Ark Uzunluğu: Kavram ve Amaç</h2>
+  <h2>Kesirli Yay Uzunluğu: Kavram ve Amaç</h2>
 
   <p class="fragment fade-in">
-    Bu bölümde, bir eğrinin <strong>ark (yay) uzunluğu</strong>nun
+    Bu bölümde, bir eğrinin <strong>yay (ark) uzunluğu</strong>nun
     klasik türev yerine <strong>kesirli türevler</strong> kullanılarak nasıl tanımlanabileceği incelenecektir.
   </p>
 
@@ -727,13 +730,13 @@
     <br/><br/>
   </div>
 </section>
-<!-- ─────────────  SLAYT 27 — Kesirli Ark Uzunluğu  ──────────────── -->
+<!-- ─────────────  SLAYT 27 — Kesirli Yay Uzunluğu  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
-  <h2>Kesirli Ark Uzunluğu</h2>
+  <h2>Kesirli Yay Uzunluğu</h2>
 
-  <p class="fragment fade-in"><strong>Temel Mantık:</strong>  
+  <p class="fragment fade-in">
     Klasik türev alınamayan (örneğin fraktal) fonksiyonlarda,  
-    <em>kesirli türev</em> ile ark uzunluğu hesaplanabilir.
+    <em>kesirli türev</em> ile yay uzunluğu hesaplanabilir.
   </p>
 
   <p class="fragment fade-in" style="margin-top: 1em;"><strong>1. Kesirli Diferansiyel:</strong></p>
@@ -744,15 +747,15 @@
       Kesirli: 
       \[
         d^\alpha y =
-        \frac{{}_0^L D_x^\alpha f(x)}{{}_0^L D_x^\alpha x}
+        \frac{{}_0^C D_x^\alpha f(x)}{{}_0^C D_x^\alpha x}
         \cdot d^\alpha x
       \]
     </li>
   </ul>
 </section>
-<!-- ─────────────  SLAYT 28 — Kesirli Ark Uzunluğu – Tek Değişkenli  ──────────────── -->
+<!-- ─────────────  SLAYT 28 — Kesirli Yay Uzunluğu – Tek Değişkenli  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
-  <h2>Kesirli Ark Uzunluğu – Tek Değişkenli</h2>
+  <h2>Kesirli Yay Uzunluğu – Tek Değişkenli</h2>
 
   <p class="fragment fade-in"><strong>2. Tek Değişkenli Fonksiyon:</strong> \( y = f(x) \)</p>
 
@@ -768,41 +771,41 @@
         s_1(x, a) = {}_0^L I_x^\alpha
         \left[
           \left(
-            \left( \frac{{}_0^L D_x^\alpha f(x)}{{}_0^L D_x^\alpha x} \right)^2 + 1
+            \left( \frac{{}_0^C D_x^\alpha f(x)}{{}_0^C D_x^\alpha x} \right)^2 + 1
           \right)^{1/2}
         \right] d^\alpha x
       \]
     </li>
   </ul>
 </section>
-<!-- ─────────────  SLAYT 29 — Parametrik Eğrilerde Kesirli Ark Uzunluğu  ──────────────── -->
+<!-- ─────────────  SLAYT 29 — Parametrik Eğrilerde Kesirli Yay Uzunluğu  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .75em;">
-  <h2>Parametrik Eğrilerde Kesirli Ark Uzunluğu</h2>
+  <h2>Parametrik Eğrilerde Kesirli Yay Uzunluğu</h2>
 
   <p class="fragment fade-in"><strong>3. Parametrik Eğriler:</strong> \( x = g(t),\ y = f(t) \)</p>
 
   <ul style="padding-left: 1.2em;">
     <li class="fragment fade-in">
       \( d^\alpha x =
-        \frac{{}_0^L D_t^\alpha g(t)}{{}_0^L D_t^\alpha t}
+        \frac{{}_0^C D_t^\alpha g(t)}{{}_0^C D_t^\alpha t}
         \cdot d^\alpha t \)
     </li>
     <li class="fragment fade-in">
       \( d^\alpha y =
-        \frac{{}_0^L D_t^\alpha f(t)}{{}_0^L D_t^\alpha t}
+        \frac{{}_0^C D_t^\alpha f(t)}{{}_0^C D_t^\alpha t}
         \cdot d^\alpha t \)
     </li>
 
     <li class="fragment fade-in" style="margin-top: .7em;">
-      Kesirli ark uzunluğu:
+      Kesirli yay uzunluğu:
       \[
         s = {}_0^L I_t^\alpha \left[
           \left(
             \left(
-              \frac{{}_0^L D_t^\alpha f(t)}{{}_0^L D_t^\alpha t}
+              \frac{{}_0^C D_t^\alpha f(t)}{{}_0^C D_t^\alpha t}
             \right)^2 +
             \left(
-              \frac{{}_0^L D_t^\alpha g(t)}{{}_0^L D_t^\alpha t}
+              \frac{{}_0^C D_t^\alpha g(t)}{{}_0^C D_t^\alpha t}
             \right)^2
           \right)^{1/2}
         \right] d^\alpha t
@@ -816,9 +819,9 @@
     \({}_0^L I_x^\alpha\) = kesirli integral operatörü.
   </div>
 </section>
-<!-- ─────────────  SLAYT 30 — Kesirli Ark Uzunluğunun Önemi ve Uygulama Alanları  ──────────────── -->
+<!-- ─────────────  SLAYT 30 — Kesirli Yay Uzunluğunun Önemi ve Uygulama Alanları  ──────────────── -->
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
-  <h2>Kesirli Ark Uzunluğunun Önemi ve Uygulama Alanları</h2>
+  <h2>Kesirli Yay Uzunluğunun Önemi ve Uygulama Alanları</h2>
 
   <p class="fragment fade-in"><strong>Bu kavram ne işe yarar?</strong></p>
 
@@ -911,20 +914,24 @@
   </div>
 </section>
 <!-- ─────────────  SLAYT 33 — Kesirli Eğrilik Yarıçapı  ──────────────── -->
-<section data-auto-animate style="padding: 0 .5rem; font-size: .70em;">
+<section data-auto-animate style="padding: 0 .5rem; font-size: .6em;">
   <h2>Kesirli Eğrilik Yarıçapı</h2>
 
-  <p class="fragment fade-in"><strong>Temel Amaç:</strong>  
-    Bir eğrinin bir noktada ne kadar "çember gibi" olduğunu  
-    <strong>kesirli diferansiyel uzayda</strong> ölçmek.
+  <p class="fragment fade-in">Eğrinin r(t) noktasındaki şekli, o noktadaki bir çemberle ne kadar örtüşüyor?</p>
+  <p class="fragment fade-in"><strong>Yani:</strong>
+    Bir eğrinin bir noktada ne kadar "çember gibi" olduğunu
+    <strong>kesirli diferansiyel uzayda</strong> ölçüsü.
   </p>
 
   <p class="fragment fade-in" style="margin-top: .7em;"><strong>Geometrik Temel:</strong></p>
   <div class="fragment fade-in note-box">
-    Çember denklemi:  
+    Çember denklemi:
     \[
       (\mathbf{r} - \mathbf{c}) \cdot (\mathbf{r} - \mathbf{c}) = \rho^2
     \]
+    <p style="font-size: 0.9em; margin-top: 0.3em; text-align: center;">
+      (Burada <strong>c</strong> çemberin merkez vektörünü, <strong>ρ</strong> ise yarıçapını belirtir.)
+    </p>
   </div>
 
   <p class="fragment fade-in" style="margin-top: .7em;"><strong>Denklem Dönüşümü:</strong></p>
@@ -941,7 +948,9 @@
       V(\mathbf{c}) = \mathbf{c} \cdot \mathbf{r}(t)
       - \tfrac{1}{2} \mathbf{r}(t) \cdot \mathbf{r}(t)
     \]
-  </div>
+  </div>  <aside>
+    Bu yardımcı fonksiyon, yukarıdaki sabitliğe göre eğrinin merkezle nasıl bir ilişki kurduğunu temsil eder.
+  </aside>
 </section>
 <!-- ─────────────  SLAYT 34 — Kesirli Serret–Frenet Denklemleri  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
@@ -966,29 +975,37 @@
   \]</div>
 </section>
 <!-- ─────────────  SLAYT 35 — Kesirli Serret–Frenet Yapıları  ──────────────── -->
-<section data-auto-animate style="padding:0 .5rem; font-size:.80em;">
-  <h2>Kesirli Serret–Frenet Yapıları</h2>
+<section data-auto-animate style="padding:0 .5rem; font-size:.70em; line-height: 1.4;">
+    <div style="display: flex; gap: 1.5em;">
+        <div style="flex-grow: 1;">
+            <h2>Kesirli Serret–Frenet Yapıları</h2>
+            <p class="fragment fade-in"><strong>3. Eğrilik Merkezi Koşulları:</strong></p>
+            <div class="fragment fade-in">\[
+ (\mathbf{c} - \mathbf{r}) \cdot \mathbf{r}_1 = 0,\quad
+ (\mathbf{c} - \mathbf{r}) \cdot \mathbf{t}_1 = 1
+ \]</div>
+            <p class="fragment fade-in" style="margin-top:.5em;"><strong>4. Kesirli Serret–Frenet Denklemleri:</strong></p>
+            <div class="fragment fade-in">\[
+ \begin{aligned}
+ \mathbf{t}_1 &= \kappa\, \mathbf{n} \\
+ \mathbf{n}_1 &= -\kappa\, \mathbf{t} + \tau\, \mathbf{b} \\
+ \mathbf{b}_1 &= -\tau\, \mathbf{n}
+ \end{aligned}
+ \]</div>
+            <ul style="padding-left:1.2em; margin-top:.4em;">
+                <li class="fragment fade-in">\( \kappa \): Kesirli eğrilik</li>
+                <li class="fragment fade-in">\( \tau \): Kesirli burulma</li>
+                <li class="fragment fade-in">\( \mathbf{b} = \mathbf{t} \times \mathbf{n} \): Binormal vektör</li>
+            </ul>
+        </div>
 
-  <p class="fragment fade-in"><strong>3. Eğrilik Merkezi Koşulları:</strong></p>
-  <div class="fragment fade-in">\[
-    (\mathbf{c} - \mathbf{r}) \cdot \mathbf{r}_1 = 0,\quad
-    (\mathbf{c} - \mathbf{r}) \cdot \mathbf{t}_1 = 1 
-  \]</div>
-
-  <p class="fragment fade-in" style="margin-top:.8em;"><strong>4. Kesirli Serret–Frenet Denklemleri:</strong></p>
-  <div class="fragment fade-in">\[
-    \begin{aligned}
-      \mathbf{t}_1 &= \kappa\, \mathbf{n} \\
-      \mathbf{n}_1 &= -\kappa\, \mathbf{t} + \tau\, \mathbf{b} \\
-      \mathbf{b}_1 &= -\tau\, \mathbf{n}
-    \end{aligned} \tag{*}
-  \]</div>
-
-  <ul style="padding-left:1.2em; margin-top:.6em;">
-    <li class="fragment fade-in">\( \kappa \): Kesirli eğrilik</li>
-    <li class="fragment fade-in">\( \tau \): Kesirli burulma</li>
-    <li class="fragment fade-in">\( \mathbf{b} = \mathbf{t} \times \mathbf{n} \): Binormal vektör</li>
-  </ul>
+        <div class="fragment fade-in" style="padding:.3em .5em; background:#f8f8f8; border-left:3px solid #333; font-size:.9em; width: 280px; align-self: flex-start; flex-shrink: 0; margin-top: 2.5em;">
+            <p style="margin:0; font-weight:bold; color:#333;">📝 Not:</p>
+            <p style="margin:.2em 0 0 0;">• \( \kappa = |\mathbf{t}_1| = |{}^0_L D_s^\alpha \mathbf{t}| \) (eğrilik vektörünün büyüklüğü)</p>
+            <p style="margin:.2em 0 0 0;">• \( \kappa =|\kappa(s)|,  \kappa(s) = t_1(s) \)</p>
+            <p style="margin:.2em 0 0 0;">• \(t_1​(s)\), birim teğet vektörünün kesirli türevidir</p>
+        </div>
+    </div>
 </section>
 <!-- ─────────────  SLAYT 36 — Düzlem Eğri & Eğrilik Vektörü  ──────────────── -->
 <section data-auto-animate style="padding:0 .5rem; font-size:.85em;">
@@ -1069,7 +1086,13 @@
       <tr class="fragment fade-in"><td>\( \frac{d\mathbf{r}}{ds} \)</td><td>\( {}_0^L D_s^\alpha \mathbf{r} \)</td></tr>
       <tr class="fragment fade-in"><td>\( \kappa \): Eğrilik</td><td>Kesirli \( \kappa \)</td></tr>
       <tr class="fragment fade-in"><td>\( \tau \): Burulma</td><td>Kesirli \( \tau \)</td></tr>
-      <tr class="fragment fade-in"><td>Serret–Frenet</td><td>* Denklemleri</td></tr>
+      <tr class="fragment fade-in"><td>Serret–Frenet</td><td>\(
+    \begin{aligned}
+      \mathbf{t}_1 &= \kappa\, \mathbf{n} \\
+      \mathbf{n}_1 &= -\kappa\, \mathbf{t} + \tau\, \mathbf{b} \\
+      \mathbf{b}_1 &= -\tau\, \mathbf{n}
+    \end{aligned}
+  \)</td></tr>
     </tbody>
   </table>
 </section>
@@ -1077,7 +1100,7 @@
 <section data-auto-animate style="padding: 0 .5rem; font-size: .85em;">
   <h2>Bir Yüzeyin Kesirli Teğet Düzlemi</h2>
 
-  <p class="fragment fade-in"><strong>Manifold (Yüzey) Tanımı:</strong></p>
+  <p class="fragment fade-in"><strong>Yüzey Tanımı:</strong></p>
   <ul style="padding-left:1.2em;">
     <li class="fragment fade-in">Yüzey noktaları: \( M(u,v) = \mathbf{x}(u,v) \)</li>
     <li class="fragment fade-in">Koordinatlar: \( x_i = x_i(u,v), \ i=1,2,3 \)</li>
@@ -1187,6 +1210,67 @@
     <strong>malzeme bilimi, fraktal modelleme, biyomekanik ve sayısal analiz</strong> gibi çok sayıda uygulama alanı için de yenilikçi çözümler sunmaktadır.
   </p>
 </section>
+
+<!-- ─────────────  SLAYT 44 — Bu makalelere de göz atın   ──────────────── -->
+<section style="padding: 0 .5rem; font-size: .8em;">
+  <h2>Bu Makalelere de Göz Atın</h2>
+  <ul>
+    <li>
+      <strong>
+        <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mma.10410" target="_blank">
+          Utilizing the Caputo fractional derivative for the flux tube close to the neutral points
+        </a>
+      </strong><br>
+      Bu çalışma, Caputo kesirli türevi kullanarak akı tüplerinin (flux tubes) geometrik yapısını inceler. 
+      Caputo yaklaşımı sabitlerin türevinin sıfır olması nedeniyle fiziksel problemlerde avantaj sağlar. 
+    </li>
+    <br>
+    <li>
+      <strong>
+        <a href="https://www.sciencedirect.com/science/article/pii/S003040262200434X" target="_blank">
+          Obtaining fractional electromagnetic curves in optical fiber using fractional alternative moving frame
+        </a>
+      </strong><br>
+      Bu makalede, fiber optik içinde doğrusal polarize ışık dalgalarının geometrisi modellenir. 
+      Amaç, elektromanyetik eğrilerin daha hassas tanımlanmasıdır.
+    </li>
+  </ul>
+</section>
+
+
+<!-- ─────────────  SLAYT 45 — Referanslar  ──────────────── -->
+<section>
+  <h2>Kaynakça</h2>
+  <ul>
+    <li>
+      <a href="http://dx.doi.org/10.18576/pfda/020302" target="_blank">
+        Fractional Differential Geometry of Curves & Surfaces
+      </a>
+    </li>
+    <li>
+      <a href="https://iajesm.in/admin/papers/66aa1e586a458.pdf" target="_blank">
+        A Brief History of Fractional Calculus
+      </a>
+    </li>
+    <li>
+      Kai Diethelm, <em>The Analysis of Fractional Differential Equations</em>
+    </li>
+  </ul>
+</section>
+
+<!-- ─────────────  SLAYT — Teşekkürler ──────────────── -->
+<section
+          data-auto-animate
+          data-background-color="#fafafa"
+          style="font-size: 0.9em"
+        >
+  <h2>Teşekkürler</h2>
+  <p style="font-size: 1.2em; margin-top: 2rem;">
+    Katılımınız için teşekkür ederim.
+  </p>
+</section>
+
+
 <style>
   .note-box {
     background: #f7f7f7;
@@ -1265,6 +1349,7 @@
     <script>
       Reveal.initialize({
         hash: true,
+        slideNumber: true,
 
         plugins: [
           RevealMarkdown,
